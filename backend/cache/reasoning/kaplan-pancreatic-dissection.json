@@ -1,0 +1,118 @@
+{
+ "digest_rows": 111,
+ "model": "nvidia/nemotron-3-super-120b-a12b",
+ "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+ "made_at": "2026-10-05 09:30 UTC",
+ "calls": {
+  "checkpoint": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "high",
+   "seconds": 7.1
+  },
+  "explain": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "low",
+   "seconds": 2.5
+  },
+  "summary": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "low",
+   "seconds": 2.8
+  }
+ },
+ "checkpoint": {
+  "decision": "raise",
+  "at_s": 83.4,
+  "headline": "Raise checkpoint at 83.4\u202fs to confirm CVS before duct division",
+  "reasoning": "The operator stated a total laparoscopic pancreaticoduodenectomy involving dissection of the pancreas and common bile duct, which includes an irreversible clipping/division step. The phase track shows a critical_approach interval from 83.4\u202fs to 93.2\u202fs, indicating proximity to the critical anatomy. No safety view was recorded by the operator (safety_view_recorded_by_operator false). Blood coverage remains low (<5\u202f%) but shows intermittent movement, suggesting the field is not obscured yet. Together these indicate a need to verify the critical view of safety before proceeding to the irreversible step.",
+  "evidence": [
+   {
+    "t_s": 83.4,
+    "metric": "phase",
+    "value": "critical_approach",
+    "reading": "Phase track enters critical_approach, signalling nearing the ductal anatomy.",
+    "verified": true,
+    "measured": "critical_approach"
+   },
+   {
+    "t_s": 18.0,
+    "metric": "blood_pct",
+    "value": 4.72,
+    "reading": "Peak blood coverage occurs early and is low, indicating minimal hemorrhage at that time.",
+    "verified": true,
+    "measured": 4.72
+   },
+   {
+    "t_s": 103.0,
+    "metric": "blood_pct",
+    "value": 2.38,
+    "reading": "Later modest increase in blood fraction shows some movement but still low overall.",
+    "verified": true,
+    "measured": 2.38
+   },
+   {
+    "t_s": 0.0,
+    "metric": "refusal",
+    "value": null,
+    "reading": "No clip-level refusal; the view is accepted as laparoscopic.",
+    "verified": false,
+    "measured": "no such refusal at that time"
+   }
+  ],
+  "limits": "Blood segmentation has low recall, so actual blood may be higher; the phase track is a weak signal on real video and cannot definitively identify the irreversible step.",
+  "would_change_if": "If the operator had recorded a safety view or if blood showed a sustained, high\u2011rate increase coinciding with the critical_approach, the checkpoint would not be needed."
+ },
+ "explanations": [
+  {
+   "id": "ONSET",
+   "title": "Bleeding onset not detected",
+   "plain": "The blood\u2011area growth rate exceeded the 8\u202f%/min trigger many times, but each time an instrument moved into or out of the measurement window, violating the steadiness requirement. Because the detector\u2019s gate blocked those candidates, no onset timestamp was recorded.",
+   "did": "Scopewatch withheld firing the bleeding\u2011onset alarm and left the timestamp null.",
+   "next": "Keep the laparoscope steady and avoid rapid instrument entry/exit near the field of interest, then re\u2011run the analysis on the same clip."
+  },
+  {
+   "id": "VOLUME",
+   "title": "No volume estimate produced",
+   "plain": "The conversion from blood\u2011percentage to millilitres needs a stable pixel\u2011to\u2011mm scale (instrument width). Across the case the scale varied too much (high coefficient of variation), so the volume gate refused to compute a value.",
+   "did": "Scopewatch set the volume status to CANNOT_MEASURE and gave no ml figure.",
+   "next": "Place a reference object of known size in the view or keep the instrument shaft at a constant distance from the lens to obtain a steady scale, then re\u2011analyse the clip."
+  }
+ ],
+ "summary": {
+  "summary": "The engine marked blood on 5.22\u202f% of the visible field at its peak, which occurred at 18.2\u202fseconds; the median blood percentage over the case was 0.0\u202f%. No frames were refused (refused_by count\u202f=\u202f0) and all 551 frames were usable. The checkpoint question was raised at 83.4\u202fseconds to confirm CVS before duct division. The most important limitation for interpreting these numbers is that the instrument cannot measure volume in millilitres.",
+  "figures": [
+   {
+    "t_s": 18.2,
+    "metric": "peak_blood_pct",
+    "value": 5.22,
+    "verified": true,
+    "measured": 5.22
+   },
+   {
+    "t_s": null,
+    "metric": "median_blood_pct",
+    "value": 0.0,
+    "verified": true,
+    "measured": 0.0
+   },
+   {
+    "t_s": null,
+    "metric": "refused_frames",
+    "value": 0,
+    "verified": true,
+    "measured": 0
+   },
+   {
+    "t_s": null,
+    "metric": "usable_frames",
+    "value": 551,
+    "verified": true,
+    "measured": 551
+   }
+  ]
+ },
+ "refusal_events": []
+}

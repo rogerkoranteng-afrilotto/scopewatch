@@ -1,0 +1,118 @@
+{
+ "digest_rows": 42,
+ "model": "nvidia/nemotron-3-super-120b-a12b",
+ "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+ "made_at": "2026-10-05 09:30 UTC",
+ "calls": {
+  "checkpoint": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "high",
+   "seconds": 12.6
+  },
+  "explain": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "low",
+   "seconds": 1.7
+  },
+  "summary": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "low",
+   "seconds": 2.3
+  }
+ },
+ "checkpoint": {
+  "decision": "raise",
+  "at_s": 8.0,
+  "headline": "Raise a safety checkpoint at 8\u202fs to confirm CVS before clipping/dividing duct/artery in dissection.",
+  "reasoning": "The operator stated the procedure includes dissection of the cystic duct and artery, which involves an irreversible clipping/dividing step requiring CVS confirmation.\nThe phase track shows dissection beginning at 7.8\u202fs, with no critical approach flag set, indicating the safety view has not yet been verified.\nBlood coverage remains low but rises to 0.26\u202f% at 24\u202fs and the rate of increase peaks at 8.5\u202f%/min around 26\u202fs, signalling active bleeding during dissection.\nThe operator has not recorded a safety view, so a checkpoint should be placed before the likely clipping/dividing step, i.e., at the start of dissection.\nGiven the measurement uncertainties, the checkpoint timing is approximate but erring on the side of caution is warranted.",
+  "evidence": [
+   {
+    "t_s": 7.8,
+    "metric": "phase",
+    "value": "dissection",
+    "reading": "Dissection phase begins, encompassing cystic duct/artery clipping/division.",
+    "verified": true,
+    "measured": "dissection"
+   },
+   {
+    "t_s": 24.0,
+    "metric": "blood_pct",
+    "value": 0.26,
+    "reading": "Blood coverage rises to 0.26% indicating early bleeding during dissection.",
+    "verified": true,
+    "measured": 0.26
+   },
+   {
+    "t_s": 26.0,
+    "metric": "rate_pct_per_min",
+    "value": 8.5,
+    "reading": "Rate of blood increase peaks at 8.5%/min, signalling active bleeding.",
+    "verified": false,
+    "measured": 13.7
+   },
+   {
+    "t_s": 38.0,
+    "metric": "instruments",
+    "value": 4,
+    "reading": "Four instruments visible, indicating active manipulation during late dissection.",
+    "verified": true,
+    "measured": 4
+   }
+  ],
+  "limits": "The phase track relies on instrument width and is a weak signal on real video, so the start of dissection may be mis\u2011timed. Blood segmentation has low recall, making the percent a conservative estimate; thus the exact timing of bleeding relative to clipping is uncertain.",
+  "would_change_if": "If the operator had recorded a safety view or the phase track had indicated a critical approach, the checkpoint would not be needed."
+ },
+ "explanations": [
+  {
+   "id": "ONSET",
+   "title": "Bleeding onset not detected",
+   "plain": "The blood\u2011area increase rate briefly exceeded the 8\u202f%/min threshold several times, but each crossing was blocked because the camera moved too much, the number of instruments in view changed, or the measurement was unreliable.",
+   "did": "Scopewatch recorded the candidate frames where the rate crossed the threshold but refused to declare an onset due to those blocking conditions.",
+   "next": "Hold the camera steadier, keep the instrument count stable, and ensure the view is clear so the rate can be trusted; then re\u2011run the analysis."
+  },
+  {
+   "id": "VOLUME",
+   "title": "No volume estimate produced",
+   "plain": "The instrument\u2011scale gate failed because the apparent size of the shaft varied too much across the clip, giving an inconsistent scale estimate.",
+   "did": "Scopewatch set the volume status to CANNOT_MEASURE and did not output a millilitre figure.",
+   "next": "Keep the instrument shaft at a consistent distance and orientation (or manually enter a reliable mm/pixel value) before recording, then re\u2011process the clip."
+  }
+ ],
+ "summary": {
+  "summary": "The engine marked blood on 3.04\u202f% of the visible field at its peak, which occurred at 38.0\u202fseconds; the median blood share over the case was 0.0\u202f%. No frames were refused (refused_frames\u202f=\u202f0) and all 207 frames were usable. The checkpoint decision was to raise a safety checkpoint at 8\u202fseconds to confirm CVS before clipping/dividing duct/artery in dissection. The main limitation for interpreting these numbers is that the blood segmentation is a conservative under\u2011count, so absolute levels read low and trends matter more than the exact percentage.",
+  "figures": [
+   {
+    "t_s": 38.0,
+    "metric": "peak_blood_pct",
+    "value": 3.04,
+    "verified": true,
+    "measured": 3.04
+   },
+   {
+    "t_s": null,
+    "metric": "median_blood_pct",
+    "value": 0.0,
+    "verified": true,
+    "measured": 0.0
+   },
+   {
+    "t_s": null,
+    "metric": "refused_frames",
+    "value": 0,
+    "verified": true,
+    "measured": 0
+   },
+   {
+    "t_s": null,
+    "metric": "usable_frames",
+    "value": 207,
+    "verified": true,
+    "measured": 207
+   }
+  ]
+ },
+ "refusal_events": []
+}

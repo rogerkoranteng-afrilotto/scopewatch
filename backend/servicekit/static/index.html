@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{PRODUCT_TITLE}}</title>
+<meta name="description" content="{{PRODUCT_TAGLINE}}">
+<link rel="stylesheet" href="/shell/css/theme.css">
+<link rel="stylesheet" href="/shell/css/shell.css">
+<link rel="stylesheet" href="/assets/css/product.css" onerror="this.remove()">
+<style>:root { --accent: {{PRODUCT_ACCENT}}; }</style>
+</head>
+<body>
+<div class="shell">
+
+  <header class="masthead">
+    <div>
+      <h1 class="masthead__title" data-bind="product.title">{{PRODUCT_TITLE}}</h1>
+      <p class="masthead__tagline" data-bind="product.tagline">{{PRODUCT_TAGLINE}}</p>
+    </div>
+    <div class="masthead__spacer"></div>
+    <div class="masthead__meta">
+      <span class="chip chip--accent" id="chip-opencv" title="Every entry must use OpenCV 5">OpenCV …</span>
+      <span class="chip" id="chip-sha" title="git sha of the running build">…</span>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-live="polite">Theme</button>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <!-- ------------------------------------------------ input ---------- -->
+    <section class="panel" aria-labelledby="h-input">
+      <div class="panel__head"><h2 class="panel__title" id="h-input">Input</h2></div>
+      <div class="panel__body">
+        <form id="upload-form">
+          <div class="dropzone" id="dropzone" tabindex="0" role="button"
+               aria-describedby="dropzone-hint">
+            <svg class="dropzone__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.5" aria-hidden="true">
+              <path d="M12 16V4m0 0L8 8m4-4 4 4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke-linecap="round"/>
+            </svg>
+            <span class="dropzone__file" id="dropzone-file">Drop a file, or click to choose</span>
+            <p class="dropzone__hint" id="dropzone-hint">…</p>
+          </div>
+          <input type="file" id="file-input" class="sr-only" aria-label="Choose a file">
+          <div id="params"></div>
+          <button class="button" type="submit" id="submit" disabled>Analyse</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------ results -------- -->
+    <div>
+      <section class="panel" aria-labelledby="h-progress" id="progress-panel" hidden>
+        <div class="panel__head">
+          <h2 class="panel__title" id="h-progress">Progress</h2>
+          <span class="chip" id="job-status">queued</span>
+        </div>
+        <div class="panel__body">
+          <div class="progress">
+            <div class="progress__track">
+              <div class="progress__bar" id="progress-bar" role="progressbar"
+                   aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+            </div>
+            <p class="progress__message" id="progress-message"></p>
+          </div>
+          <pre class="log" id="log" aria-live="polite"></pre>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="h-result">
+        <div class="panel__head">
+          <h2 class="panel__title" id="h-result">Result</h2>
+          <span class="chip" id="result-timing" hidden></span>
+        </div>
+        <div class="panel__body" id="result">
+          <p class="empty">Nothing analysed yet.</p>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="h-evidence">
+        <div class="panel__head">
+          <h2 class="panel__title" id="h-evidence">Evidence</h2>
+          <span class="chip" id="evidence-count" hidden></span>
+        </div>
+        <div class="panel__body" id="evidence">
+          <p class="empty">The frames behind each result appear here.</p>
+        </div>
+      </section>
+    </div>
+
+  </div>
+</div>
+
+<script type="module" src="/shell/js/main.js"></script>
+<script type="module" src="/assets/js/product.js" onerror="this.remove()"></script>
+</body>
+</html>

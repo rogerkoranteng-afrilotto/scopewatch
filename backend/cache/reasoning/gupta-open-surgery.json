@@ -1,0 +1,322 @@
+{
+ "digest_rows": 115,
+ "model": "nvidia/nemotron-3-super-120b-a12b",
+ "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+ "made_at": "2026-10-05 09:31 UTC",
+ "calls": {
+  "checkpoint": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "high",
+   "seconds": 8.2
+  },
+  "explain": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "low",
+   "seconds": 8.6
+  },
+  "summary": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "low",
+   "seconds": 2.2
+  }
+ },
+ "checkpoint": {
+  "decision": "cannot_assess",
+  "at_s": null,
+  "headline": "Cannot assess safety checkpoint: procedure is open, not laparoscopic, and view is repeatedly out\u2011of\u2011domain.",
+  "reasoning": "The operator stated the case was an open cholecystectomy, not a laparoscopic procedure. Throughout the recording, large segments were refused as OUT_OF_DOMAIN, indicating the view did not resemble an intraperitoneal laparoscopic scene. Because there is no laparoscopic view, the blood percentage and phase track cannot be interpreted as proxies for proximity to an irreversible step. Validation shows blood segmentation finds only a small fraction of actual blood, making absolute levels unreliable and emphasizing movement over level. Consequently, there is no basis to place a safety checkpoint; the appropriate decision is cannot_assess.",
+  "evidence": [
+   {
+    "t_s": 22.4,
+    "metric": "refusal",
+    "value": "OUT_OF_DOMAIN",
+    "reading": "Large interval marked out-of-domain, indicating no laparoscopic view.",
+    "verified": true,
+    "measured": "OUT_OF_DOMAIN"
+   },
+   {
+    "t_s": 0.0,
+    "metric": "refusal",
+    "value": "OUT_OF_DOMAIN",
+    "reading": "Early frames also out-of-domain.",
+    "verified": true,
+    "measured": "OUT_OF_DOMAIN"
+   },
+   {
+    "t_s": 16.2,
+    "metric": "phase",
+    "value": "exposure",
+    "reading": "Phase track shows exposure but is a weak signal on real video.",
+    "verified": true,
+    "measured": "exposure"
+   },
+   {
+    "t_s": 71.5,
+    "metric": "blood_pct",
+    "value": 7.1,
+    "reading": "Peak blood fraction modest, but movement matters more than level.",
+    "verified": false,
+    "measured": 2.95
+   }
+  ],
+  "limits": "Measurements are unreliable because most frames are refused as out-of-domain and blood segmentation has low recall, so the series does not reflect true intraoperative conditions.",
+  "would_change_if": "If the procedure were laparoscopic and the blood series showed a sustained rise suggesting proximity to an irreversible step, a checkpoint would be warranted."
+ },
+ "explanations": [
+  {
+   "id": "CLIP",
+   "title": "Clip\u2011level domain refusal",
+   "plain": "The entire clip shows an open abdominal view rather than a laparoscopic view, so Scopewatch considers it outside its intended domain.",
+   "did": "Scopewatch refused the whole clip and produced no blood\u2011percentage or timing results.",
+   "next": "Record a new clip taken through a laparoscope or ensure the camera is inside the abdominal cavity."
+  },
+  {
+   "id": "R1",
+   "title": "Early OUT_OF_DOMAIN refusal",
+   "plain": "Frames 0\u20112.2\u202fs were judged as not laparoscopic (open view), so they were marked as refused.",
+   "did": "Scopewatch skipped those frames and did not include them in any blood\u2011coverage or rate calculations.",
+   "next": "Re\u2011record the beginning of the procedure with the laparoscope properly inserted."
+  },
+  {
+   "id": "R2",
+   "title": "Mid\u2011clip OUT_OF_DOMAIN refusal",
+   "plain": "Frames 3.0\u20115.2\u202fs were again classified as outside the laparoscopic domain and thus refused.",
+   "did": "Those frames were excluded from measurement; no blood data were derived from them.",
+   "next": "Adjust the camera angle or insert the scope to capture the internal view for this segment."
+  },
+  {
+   "id": "R3",
+   "title": "Brief OUT_OF_DOMAIN refusal",
+   "plain": "Frames 6.5\u20117.0\u202fs were refused because the view did not look like a laparoscopic interior.",
+   "did": "Scopewatch ignored these frames when computing blood percentage and rate.",
+   "next": "Hold the camera steady and ensure the scope tip remains inside the abdomen during this interval."
+  },
+  {
+   "id": "R4",
+   "title": "Short OUT_OF_DOMAIN refusal",
+   "plain": "Frames 15.0\u201115.2\u202fs were marked as outside the domain and therefore refused.",
+   "did": "These frames contributed no data to the blood\u2011coverage series.",
+   "next": "Verify that the laparoscope is not retracted or obstructed at this point."
+  },
+  {
+   "id": "R5",
+   "title": "Later OUT_OF_DOMAIN refusal",
+   "plain": "Frames 20.5\u201121.2\u202fs were refused for being outside the laparoscopic domain.",
+   "did": "Scopewatch omitted these frames from all measurements.",
+   "next": "Re\u2011position the scope to regain a proper internal view before continuing."
+  },
+  {
+   "id": "R6",
+   "title": "Long OUT_OF_DOMAIN refusal",
+   "plain": "A continuous block from 22.4\u202fs to 46.4\u202fs was deemed non\u2011laparoscopic and thus refused.",
+   "did": "All frames in this interval were excluded; no blood\u2011percentage values were generated.",
+   "next": "Check for scope withdrawal or lens obstruction and re\u2011insert the laparoscope to resume imaging."
+  },
+  {
+   "id": "R7",
+   "title": "Brief OUT_OF_DOMAIN refusal",
+   "plain": "Frames 49.9\u201150.0\u202fs were refused because the view did not resemble a laparoscopic interior.",
+   "did": "Scopewatch skipped these two frames in its analysis.",
+   "next": "Make sure the camera stays inside the abdomen during this short period."
+  },
+  {
+   "id": "R8",
+   "title": "Extended OUT_OF_DOMAIN refusal",
+   "plain": "Frames 50.7\u201160.9\u202fs were marked as outside the domain and therefore refused.",
+   "did": "These frames were not used for any blood\u2011coverage or rate calculations.",
+   "next": "Adjust the scope position or lighting to obtain a clear laparoscopic view for this segment."
+  },
+  {
+   "id": "R9",
+   "title": "Mid\u2011procedure OUT_OF_DOMAIN refusal",
+   "plain": "Frames 61.5\u201164.4\u202fs were refused as non\u2011laparoscopic views.",
+   "did": "Scopewatch excluded these frames from all measurements.",
+   "next": "Confirm that the laparoscope remains inserted and the field of view is internal."
+  },
+  {
+   "id": "R10",
+   "title": "Short OUT_OF_DOMAIN refusal",
+   "plain": "Frames 65.0\u201166.4\u202fs were judged outside the laparoscopic domain and thus refused.",
+   "did": "These frames contributed no data to the blood\u2011percentage series.",
+   "next": "Re\u2011establish proper scope placement before proceeding."
+  },
+  {
+   "id": "R11",
+   "title": "Very brief OUT_OF_DOMAIN refusal",
+   "plain": "Frames 67.0\u201167.4\u202fs were refused because the view did not look laparoscopic.",
+   "did": "Scopewatch ignored these frames in its analysis.",
+   "next": "Keep the scope steady and inside the abdomen to avoid such short refusals."
+  },
+  {
+   "id": "R12",
+   "title": "Brief OUT_OF_DOMAIN refusal",
+   "plain": "Frames 68.0\u201168.9\u202fs were marked as outside the domain and therefore refused.",
+   "did": "These frames were excluded from blood\u2011coverage and rate calculations.",
+   "next": "Verify that the camera has not been withdrawn or obstructed at this time."
+  },
+  {
+   "id": "R13",
+   "title": "Later OUT_OF_DOMAIN refusal",
+   "plain": "Frames 75.0\u201179.4\u202fs were refused as non\u2011laparoscopic views.",
+   "did": "Scopewatch did not use these frames for any measurements.",
+   "next": "Ensure the laparoscope remains correctly positioned for this interval."
+  },
+  {
+   "id": "R14",
+   "title": "Final OUT_OF_DOMAIN refusal",
+   "plain": "Frames 80.4\u201183.0\u202fs were judged outside the laparoscopic domain and thus refused.",
+   "did": "These frames contributed no data to the blood\u2011percentage series.",
+   "next": "Check for scope withdrawal or lens fog and re\u2011insert the laparoscope to finish the case."
+  },
+  {
+   "id": "ONSET",
+   "title": "Bleeding onset detector blocked",
+   "plain": "Although the blood\u2011percentage rate crossed the 8\u202f%/min threshold many times, each candidate frame was refused by quality or domain gates (instrument changes, motion, unreliability, or unmeasurability), so the onset never fired.",
+   "did": "Scopewatch suppressed the bleeding\u2011onset signal and reported no timestamp.",
+   "next": "Reduce camera motion, keep instruments steady, and ensure the view stays measurable to allow the detector to accept a frame."
+  },
+  {
+   "id": "VOLUME",
+   "title": "No volume estimate available",
+   "plain": "Volume calculation requires a measurable instrument shaft to derive a millimetres\u2011per\u2011pixel scale; no frame in the clip contained a usable shaft, so the scale gate failed.",
+   "did": "Scopewatch returned a CANNOT_MEASURE status and gave no millilitre figure.",
+   "next": "Insert a calibrated instrument (e.g., a grasping tool) into the view and record a new clip so a scale can be established."
+  }
+ ],
+ "summary": {
+  "summary": "The engine marked blood covering up to 7.1\u202f% of the field, peaking at 71.5\u202fseconds, while the median blood share was 0.0\u202f%. It refused 314 frames as out\u2011of\u2011domain, leaving 374 usable frames. The checkpoint decision was cannot_assess because the procedure was open and the view was repeatedly out\u2011of\u2011domain. The most important limit for interpreting these numbers is that the blood percentage is a conservative under\u2011count and only trends over time are reliable.",
+  "figures": [
+   {
+    "t_s": 71.5,
+    "metric": "peak_blood_pct",
+    "value": 7.1,
+    "verified": true,
+    "measured": 7.1
+   },
+   {
+    "t_s": null,
+    "metric": "median_blood_pct",
+    "value": 0.0,
+    "verified": true,
+    "measured": 0.0
+   },
+   {
+    "t_s": null,
+    "metric": "refused_frames",
+    "value": 314,
+    "verified": true,
+    "measured": 314
+   },
+   {
+    "t_s": null,
+    "metric": "usable_frames",
+    "value": 374,
+    "verified": true,
+    "measured": 374
+   }
+  ]
+ },
+ "refusal_events": [
+  {
+   "id": "R1",
+   "code": "OUT_OF_DOMAIN",
+   "start_s": 0.0,
+   "end_s": 2.2,
+   "frames": 13
+  },
+  {
+   "id": "R2",
+   "code": "OUT_OF_DOMAIN",
+   "start_s": 3.0,
+   "end_s": 5.2,
+   "frames": 14
+  },
+  {
+   "id": "R3",
+   "code": "OUT_OF_DOMAIN",
+   "start_s": 6.5,
+   "end_s": 7.0,
+   "frames": 4
+  },
+  {
+   "id": "R4",
+   "code": "OUT_OF_DOMAIN",
+   "start_s": 15.0,
+   "end_s": 15.2,
+   "frames": 2
+  },
+  {
+   "id": "R5",
+   "code": "OUT_OF_DOMAIN",
+   "start_s": 20.5,
+   "end_s": 21.2,
+   "frames": 5
+  },
+  {
+   "id": "R6",
+   "code": "OUT_OF_DOMAIN",
+   "start_s": 22.4,
+   "end_s": 46.4,
+   "frames": 142
+  },
+  {
+   "id": "R7",
+   "code": "OUT_OF_DOMAIN",
+   "start_s": 49.9,
+   "end_s": 50.0,
+   "frames": 2
+  },
+  {
+   "id": "R8",
+   "code": "OUT_OF_DOMAIN",
+   "start_s": 50.7,
+   "end_s": 60.9,
+   "frames": 61
+  },
+  {
+   "id": "R9",
+   "code": "OUT_OF_DOMAIN",
+   "start_s": 61.5,
+   "end_s": 64.4,
+   "frames": 18
+  },
+  {
+   "id": "R10",
+   "code": "OUT_OF_DOMAIN",
+   "start_s": 65.0,
+   "end_s": 66.4,
+   "frames": 7
+  },
+  {
+   "id": "R11",
+   "code": "OUT_OF_DOMAIN",
+   "start_s": 67.0,
+   "end_s": 67.4,
+   "frames": 3
+  },
+  {
+   "id": "R12",
+   "code": "OUT_OF_DOMAIN",
+   "start_s": 68.0,
+   "end_s": 68.9,
+   "frames": 6
+  },
+  {
+   "id": "R13",
+   "code": "OUT_OF_DOMAIN",
+   "start_s": 75.0,
+   "end_s": 79.4,
+   "frames": 25
+  },
+  {
+   "id": "R14",
+   "code": "OUT_OF_DOMAIN",
+   "start_s": 80.4,
+   "end_s": 83.0,
+   "frames": 12
+  }
+ ]
+}

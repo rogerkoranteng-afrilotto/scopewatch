@@ -1,0 +1,189 @@
+{
+ "digest_rows": 94,
+ "model": "nvidia/nemotron-3-super-120b-a12b",
+ "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+ "made_at": "2026-10-05 09:30 UTC",
+ "calls": {
+  "checkpoint": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "high",
+   "seconds": 9.4
+  },
+  "explain": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "low",
+   "seconds": 4.9
+  },
+  "summary": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "low",
+   "seconds": 3.6
+  }
+ },
+ "checkpoint": {
+  "decision": "do_not_raise",
+  "at_s": null,
+  "headline": "Do not raise checkpoint: ulcer repair involves suturing, not clipping/dividing ducts or vessels requiring CVS.",
+  "reasoning": "The operator states the procedure is a laparoscopic suture repair of a perforated, bleeding peptic ulcer, which does not involve clipping or dividing a duct or vessel. Consequently, a critical view of safety (CVS) checkpoint is not indicated for this operation. The phase track shows a dissection phase from 9.7\u202fs to 93.5\u202fs but never reaches a critical_approach flag, consistent with the absence of a duct\u2011clipping step. Blood\u2011coverage peaks at ~25\u202f% around 29.6\u202fs and shows transient spikes, reflecting pooled ulcer bleeding rather than a controlled vascular injury needing immediate control. No refusal events obscure the view long enough to hide an irreversible step, and the validation notes blood percentages are conservative under\u2011counts, so movement, not absolute level, is the relevant cue. Therefore there is no evident irreversible step that would merit a safety pause.",
+  "evidence": [
+   {
+    "t_s": 9.7,
+    "metric": "phase",
+    "value": "dissection",
+    "reading": "The phase track indicates a dissection phase lasting most of the case, but never flags a critical approach.",
+    "verified": true,
+    "measured": "dissection"
+   },
+   {
+    "t_s": 29.6,
+    "metric": "blood_pct",
+    "value": 24.62,
+    "reading": "Blood covers about a quarter of the field at its peak, indicating substantial pooled ulcer bleeding.",
+    "verified": false,
+    "measured": 5.0
+   },
+   {
+    "t_s": 8.0,
+    "metric": "rate_pct_per_min",
+    "value": 235.0,
+    "reading": "A brief spike in blood\u2011percentage rate occurs early, but it is not sustained and does not correspond to a controllable vascular injury.",
+    "verified": true,
+    "measured": 235.0
+   },
+   {
+    "t_s": 0.0,
+    "metric": "refusal",
+    "value": "OUT_OF_FOCUS",
+    "reading": "Early frames are occasionally out of focus, yet the view remains sufficient to assess the operative field.",
+    "verified": true,
+    "measured": "OUT_OF_FOCUS"
+   }
+  ],
+  "limits": "The phase track is a weak signal on real video and cannot definitively identify a clipping step; the blood series is coarse and only reflects movement, not specific vascular injury, so reliance on these markers alone carries uncertainty.",
+  "would_change_if": "If the operator had stated that a duct or vessel was being clipped or divided, or if the phase track had shown a critical_approach flag, the decision would shift to raising a checkpoint."
+ },
+ "explanations": [
+  {
+   "id": "R1",
+   "title": "Single out\u2011of\u2011focus frame at start",
+   "plain": "At the very beginning of the clip one frame was judged out of focus, so Scopewatch could not measure blood there.",
+   "did": "Scopewatch refused that frame and excluded it from the blood\u2011percentage series.",
+   "next": "Re\u2011record the clip with the lens focused before starting, or keep the camera still until focus is stable."
+  },
+  {
+   "id": "R2",
+   "title": "Early occlusion lasting ~3\u202fseconds",
+   "plain": "From 0.2\u202fs to 3.2\u202fs something (likely tissue or an instrument) blocked the view, causing 19 consecutive frames to be refused.",
+   "did": "Scopewatch marked those frames as occluded and omitted them from the blood\u2011coverage calculation.",
+   "next": "Keep the operative field clear of obstructions or adjust the camera angle so the view stays unobstructed."
+  },
+  {
+   "id": "R3",
+   "title": "Out\u2011of\u2011domain patch near 28\u202fs",
+   "plain": "Between 27.7\u202fs and 28.4\u202fs three frames fell outside the expected image domain (e.g., extreme glare or artifact), triggering refusal.",
+   "did": "Scopewatch refused those frames and did not include them in the blood\u2011percentage trace.",
+   "next": "Avoid sudden bright reflections or ensure proper lighting and exposure settings during recording."
+  },
+  {
+   "id": "R4",
+   "title": "Single out\u2011of\u2011domain frame at 45.6\u202fs",
+   "plain": "One frame at 45.6\u202fs was classified as out of domain, likely due to a brief glare or saturation spike.",
+   "did": "Scopewatch refused that frame and skipped it in the analysis.",
+   "next": "Maintain consistent illumination and check for specular highlights that could push pixels out of range."
+  },
+  {
+   "id": "R5",
+   "title": "Single out\u2011of\u2011domain frame at 48.7\u202fs",
+   "plain": "A similar single out\u2011of\u2011domain event occurred at 48.7\u202fs, again causing a frame refusal.",
+   "did": "Scopewatch excluded that frame from the blood\u2011percentage measurement.",
+   "next": "Repeat the segment with steady lighting or adjust camera settings to prevent domain violations."
+  },
+  {
+   "id": "ONSET",
+   "title": "Bleeding onset detector blocked",
+   "plain": "Although the blood\u2011area rise rate crossed the threshold (peak\u202f\u2248\u202f235\u202f%/min), each candidate frame was invalidated by changing instrument count or excessive camera motion, so the detector never fired.",
+   "did": "Scopewatch withheld a bleeding\u2011onset timestamp because its gating conditions were not satisfied.",
+   "next": "Hold the camera steadier and keep the instrument configuration stable long enough for the rate to be accepted."
+  },
+  {
+   "id": "VOLUME",
+   "title": "No millilitre volume reported",
+   "plain": "The instrument\u2011scale gate failed because the estimated pixels\u2011per\u2011mm varied too much across the clip (CV\u202f\u2248\u202f0.29), so Scopewatch cannot convert blood percentage to a volume.",
+   "did": "Scopewatch returned a CANNOT_MEASURE status and gave no ml figure.",
+   "next": "Enter a reliable millimetres\u2011per\u2011pixel calibration (e.g., using a known\u2011size reference) and ensure the scale stays constant throughout the recording."
+  }
+ ],
+ "summary": {
+  "summary": "The engine marked blood covering a peak of 24.6\u202f% of the visible field at 29.6\u202fs, with a median of 7.9\u202f%. The trace rose and fell throughout the case, showing no flat plateau. It refused 46 frames (due to occlusion, exposure clipping, out\u2011of\u2011domain and focus loss), amounting to roughly 3\u202fseconds of unusable data. Volume could not be measured because the instrument scale was inconsistent, and the checkpoint question was not raised (decision: do_not_raise). The most important limit for reading these numbers is the segmentation\u2019s low recall, meaning the blood share is a conservative under\u2011count.",
+  "figures": [
+   {
+    "t_s": 29.6,
+    "metric": "peak_blood_pct",
+    "value": 24.62,
+    "verified": true,
+    "measured": 24.62
+   },
+   {
+    "t_s": null,
+    "metric": "median_blood_pct",
+    "value": 7.92,
+    "verified": true,
+    "measured": 7.92
+   },
+   {
+    "t_s": null,
+    "metric": "refused_frames",
+    "value": 46,
+    "verified": false,
+    "measured": 25
+   },
+   {
+    "t_s": null,
+    "metric": "usable_frames",
+    "value": 536,
+    "verified": true,
+    "measured": 536
+   }
+  ]
+ },
+ "refusal_events": [
+  {
+   "id": "R1",
+   "code": "OUT_OF_FOCUS",
+   "start_s": 0.0,
+   "end_s": 0.0,
+   "frames": 1
+  },
+  {
+   "id": "R2",
+   "code": "OCCLUDED",
+   "start_s": 0.2,
+   "end_s": 3.2,
+   "frames": 19
+  },
+  {
+   "id": "R3",
+   "code": "OUT_OF_DOMAIN",
+   "start_s": 27.7,
+   "end_s": 28.4,
+   "frames": 3
+  },
+  {
+   "id": "R4",
+   "code": "OUT_OF_DOMAIN",
+   "start_s": 45.6,
+   "end_s": 45.6,
+   "frames": 1
+  },
+  {
+   "id": "R5",
+   "code": "OUT_OF_DOMAIN",
+   "start_s": 48.7,
+   "end_s": 48.7,
+   "frames": 1
+  }
+ ]
+}

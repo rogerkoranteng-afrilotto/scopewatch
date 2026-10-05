@@ -1,0 +1,282 @@
+{
+ "wses-laparoscopic-bleeding-ulcer-repair": {
+  "blood_at_start": true,
+  "new_bleeding": [
+   {
+    "from_s": 66,
+    "to_s": 72,
+    "confidence": "medium",
+    "what": "fresh bright-red blood appears on the omentum/stomach wall below the suture site (absent at 64-66 s); camera also shifts, so part may be revealed rather than new"
+   },
+   {
+    "from_s": 82,
+    "to_s": 92,
+    "confidence": "low",
+    "what": "gutter pool looks larger and fresher red at 84-92 s after suturing; could be the camera re-framing the existing pool"
+   }
+  ],
+  "blood_increases_visibly": true,
+  "non_laparoscopic_spans": [
+   {
+    "from_s": 0,
+    "to_s": 3.5,
+    "confidence": "high",
+    "what": "black screen and title card"
+   }
+  ],
+  "summary": "After a 3.5 s title card the first surgical frame already holds a dark blood pool in the subhepatic gutter, present throughout the ulcer suturing; fresh red staining appears around 70 s and the pool looks larger near the end, but 2 s sampling cannot separate new blood from re-framing."
+ },
+ "barroso-laparoscopic-inguinal-ring-suture": {
+  "blood_at_start": true,
+  "new_bleeding": [
+   {
+    "from_s": 30,
+    "to_s": 34,
+    "confidence": "low",
+    "what": "after the needle passes, one or two extra small dark-red puncture spots appear beside the cord and the existing spot looks slightly larger"
+   }
+  ],
+  "blood_increases_visibly": false,
+  "non_laparoscopic_spans": [
+   {
+    "from_s": 0,
+    "to_s": 1,
+    "confidence": "high",
+    "what": "black frame"
+   }
+  ],
+  "summary": "Clean preperitoneal inguinal view with one small dark blood spot at a needle puncture visible from the first frame; a couple of tiny puncture spots appear after suturing, otherwise no bleeding."
+ },
+ "kaplan-tlpd-technique-3": {
+  "blood_at_start": false,
+  "new_bleeding": [
+   {
+    "from_s": 6,
+    "to_s": 10,
+    "confidence": "low",
+    "what": "blood-stained dissection field appears; mostly the camera moving to an already-bloodied area"
+   },
+   {
+    "from_s": 98,
+    "to_s": 106,
+    "confidence": "medium",
+    "what": "fresh bright-red blood wells up in the choledochal dissection bed (102-106 s)"
+   }
+  ],
+  "blood_increases_visibly": true,
+  "non_laparoscopic_spans": [],
+  "summary": "Adhesiolysis starts bloodless, then pancreatic/hepatoduodenal dissection with blood staining, char and small pools throughout; clearest fresh bleeding is during the common bile duct dissection around 100-106 s."
+ },
+ "kaplan-tlpd-technique-6": {
+  "blood_at_start": true,
+  "new_bleeding": [
+   {
+    "from_s": 10,
+    "to_s": 14,
+    "confidence": "medium",
+    "what": "vivid red bleeding point at the pancreatic stump/anastomosis at 12 s"
+   },
+   {
+    "from_s": 20,
+    "to_s": 30,
+    "confidence": "low",
+    "what": "dark pool at lower left of the anastomosis looks larger 22-28 s; may be framing"
+   }
+  ],
+  "blood_increases_visibly": false,
+  "non_laparoscopic_spans": [
+   {
+    "from_s": 65,
+    "to_s": 71,
+    "confidence": "high",
+    "what": "external view: drapes, port sites and gloved hand"
+   }
+  ],
+  "summary": "Anastomosis field with blood-stained stump and small dark pools from the start; a bright bleeding point near 12 s, then a cleaner gastroenterostomy; ends on the outside of the abdomen."
+ },
+ "anpol42-tep-hernia-2": {
+  "blood_at_start": true,
+  "new_bleeding": [],
+  "blood_increases_visibly": false,
+  "non_laparoscopic_spans": [],
+  "summary": "TEP dissection with maroon blood staining/bruising of the areolar tissue and a dark charred band present throughout; no visible new bleeding at 2 s sampling."
+ },
+ "anpol42-tep-hernia-4": {
+  "blood_at_start": true,
+  "new_bleeding": [
+   {
+    "from_s": 110,
+    "to_s": 126,
+    "confidence": "low",
+    "what": "dark wet blood/clot visible in the slit between mesh leaves; likely existing blood uncovered as the mesh moves rather than new bleeding"
+   }
+  ],
+  "blood_increases_visibly": false,
+  "non_laparoscopic_spans": [],
+  "summary": "Mesh placement over a dark red, blood-stained preperitoneal field; from ~72 s the new mesh picks up purple blood stains, and dark blood sits in the cord slit late on, but no clear active bleeding. Last 8 s very dark."
+ },
+ "anpol42-tep-recurrent-hernia": {
+  "blood_at_start": false,
+  "new_bleeding": [
+   {
+    "from_s": 8,
+    "to_s": 9,
+    "confidence": "low",
+    "what": "darker blood-stained fat appears as the camera advances; cannot tell from new bleeding"
+   }
+  ],
+  "blood_increases_visibly": false,
+  "non_laparoscopic_spans": [],
+  "summary": "Short clip of red muscle and hernia sac with no clear blood for 7 s, then the view moves into a darker blood-stained fatty area in the last two frames."
+ },
+ "gupta-gallbladder-torsion-cholecystectomy": {
+  "blood_at_start": true,
+  "new_bleeding": [
+   {
+    "from_s": 70,
+    "to_s": 90,
+    "confidence": "low",
+    "what": "bright red blood pooling around the cystic pedicle while clamping; colour saturation makes blood vs tissue unreliable"
+   }
+  ],
+  "blood_increases_visibly": false,
+  "non_laparoscopic_spans": [
+   {
+    "from_s": 0,
+    "to_s": 115,
+    "confidence": "high",
+    "what": "entire clip is open surgery (gloved hands, clamps), oversaturated colour"
+   }
+  ],
+  "summary": "Open cholecystectomy of a torsed gallbladder with blood on gloves and wet red field throughout; heavy red oversaturation makes any onset judgement unreliable."
+ },
+ "boer-gallbladder-torsion-cholecystectomy": {
+  "blood_at_start": true,
+  "new_bleeding": [
+   {
+    "from_s": 26,
+    "to_s": 40,
+    "confidence": "medium",
+    "what": "bright red blood and clot collect in the gallbladder bed/pedicle as it is dissected and grows by 34-40 s"
+   }
+  ],
+  "blood_increases_visibly": true,
+  "non_laparoscopic_spans": [],
+  "summary": "Necrotic dark gallbladder with only a small red area at the neck early on; blood appears in the dissection bed from ~26 s and is clearly more by the end."
+ },
+ "kavalakat-omental-infarction": {
+  "blood_at_start": true,
+  "new_bleeding": [
+   {
+    "from_s": 8,
+    "to_s": 12,
+    "confidence": "medium",
+    "what": "blood rivulet runs down the pale abdominal wall from the haemorrhagic omentum at 10 s"
+   },
+   {
+    "from_s": 16,
+    "to_s": 22,
+    "confidence": "medium",
+    "what": "trickle seen again and longer with blood gathering at the omental edge (18-22 s); could partly be the camera returning"
+   }
+  ],
+  "blood_increases_visibly": true,
+  "non_laparoscopic_spans": [
+   {
+    "from_s": 64,
+    "to_s": 75,
+    "confidence": "high",
+    "what": "camera inside the port/retrieval sleeve"
+   }
+  ],
+  "summary": "Haemorrhagic infarcted omentum with a visible blood trickle down the wall around 10-22 s, then mobilisation and bagging; ends inside the port with blood-smeared sleeve."
+ },
+ "kaplan-tlpd-diagnostic-laparoscopy": {
+  "blood_at_start": false,
+  "new_bleeding": [
+   {
+    "from_s": 16,
+    "to_s": 20,
+    "confidence": "low",
+    "what": "blood-stained gauze and red raw surface come into view; camera move, not clearly new"
+   },
+   {
+    "from_s": 52,
+    "to_s": 58,
+    "confidence": "medium",
+    "what": "dark blood/clot collects below the sutured site at the duodenum (54-58 s)"
+   }
+  ],
+  "blood_increases_visibly": true,
+  "non_laparoscopic_spans": [],
+  "summary": "Bloodless survey of liver and omentum, then blood-stained gauze packing and suturing; a small dark clot at the suture point grows into visible blood below it by 54-58 s."
+ },
+ "kaplan-tlpd-technique-5": {
+  "blood_at_start": true,
+  "new_bleeding": [
+   {
+    "from_s": 20,
+    "to_s": 26,
+    "confidence": "medium",
+    "what": "bright red blood welling during porto-uncinate dissection"
+   },
+   {
+    "from_s": 48,
+    "to_s": 52,
+    "confidence": "low",
+    "what": "large bright red pool in the lower field after specimen bagging; may be existing pool newly in view"
+   },
+   {
+    "from_s": 94,
+    "to_s": 106,
+    "confidence": "medium",
+    "what": "fresh red blood on the jejunum/anastomosis and a red pool at left (96-104 s)"
+   }
+  ],
+  "blood_increases_visibly": true,
+  "non_laparoscopic_spans": [],
+  "summary": "Pancreaticoduodenectomy steps in a bloody field: red pool at start, fresh bleeding in the uncinate dissection (~22 s), a pooled field around 50-62 s, and fresh blood on the anastomosis near 96-104 s."
+ },
+ "anpol42-tep-hernia-1": {
+  "blood_at_start": false,
+  "new_bleeding": [],
+  "blood_increases_visibly": false,
+  "non_laparoscopic_spans": [],
+  "summary": "Short, heavily red-orange TEP view with vessels and fat and motion blur; no identifiable blood, red tints are tissue colour."
+ },
+ "anpol42-tep-hernia-3": {
+  "blood_at_start": true,
+  "new_bleeding": [
+   {
+    "from_s": 96,
+    "to_s": 102,
+    "confidence": "low",
+    "what": "a dark red spot/clot appears at the upper dissection edge; could be revealed by retraction"
+   }
+  ],
+  "blood_increases_visibly": false,
+  "non_laparoscopic_spans": [],
+  "summary": "Pale TEP dissection with small maroon stains and bruising present from the start; a small dark red spot appears near 96-100 s but no clear bleeding."
+ },
+ "anpol42-tep-indirect-hernia": {
+  "blood_at_start": true,
+  "new_bleeding": [],
+  "blood_increases_visibly": false,
+  "non_laparoscopic_spans": [
+   {
+    "from_s": 18,
+    "to_s": 19,
+    "confidence": "medium",
+    "what": "lens against tissue / red blur, not interpretable"
+   }
+  ],
+  "summary": "Dark red indirect sac dissection with small clots and blood-stained cord throughout; no visible new bleeding, final frame is a smeared lens."
+ },
+ "admlsir-real-surgical-smoke-D-V09": {
+  "blood_at_start": false,
+  "new_bleeding": [],
+  "blood_increases_visibly": false,
+  "non_laparoscopic_spans": [],
+  "summary": "4 s robotic cautery of a fat pedicle with smoke particles; no blood at any point (0.25 s sampling)."
+ }
+}

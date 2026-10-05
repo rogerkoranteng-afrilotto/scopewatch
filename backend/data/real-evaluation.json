@@ -1,0 +1,2160 @@
+{
+  "note": "No real clip has a known blood volume, so no millilitre is scored here. Segmentation is scored against hand-drawn polygons on 64 fixed frames; thresholds were chosen on the dev clips only.  Re-scored 3 Oct 2026 after retuning CHROMA_MIN 35->42, SCENE_CHROMA_RATIO 1.35->1.55, SCENE_HUE_SLACK_DEG 3->20, selected by F0.5 under leave-one-clip-out.",
+  "segmentation": {
+    "before": {
+      "dev": {
+        "tp": 12919,
+        "fp": 20740,
+        "fn": 49677,
+        "precision": 0.384,
+        "recall": 0.206
+      },
+      "test": {
+        "tp": 0,
+        "fp": 10071,
+        "fn": 68148,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "all_laparoscopic": {
+        "tp": 12919,
+        "fp": 30811,
+        "fn": 117825,
+        "precision": 0.295,
+        "recall": 0.099
+      },
+      "open": {
+        "tp": 0,
+        "fp": 13996,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null
+      }
+    },
+    "after": {
+      "dev": {
+        "tp": 25103,
+        "fp": 5453,
+        "fn": 37493,
+        "precision": 0.822,
+        "recall": 0.401
+      },
+      "test": {
+        "tp": 5280,
+        "fp": 3023,
+        "fn": 62868,
+        "precision": 0.636,
+        "recall": 0.077
+      },
+      "all_laparoscopic": {
+        "tp": 30383,
+        "fp": 8476,
+        "fn": 100361,
+        "precision": 0.782,
+        "recall": 0.232
+      },
+      "open": {
+        "tp": 0,
+        "fp": 2064,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null
+      }
+    },
+    "before_gated": {
+      "dev": {
+        "tp": 12919,
+        "fp": 20740,
+        "fn": 49677,
+        "precision": 0.384,
+        "recall": 0.206
+      },
+      "test": {
+        "tp": 0,
+        "fp": 10071,
+        "fn": 68148,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "all_laparoscopic": {
+        "tp": 12919,
+        "fp": 30811,
+        "fn": 117825,
+        "precision": 0.295,
+        "recall": 0.099
+      }
+    },
+    "after_gated": {
+      "dev": {
+        "tp": 25103,
+        "fp": 5453,
+        "fn": 37493,
+        "precision": 0.822,
+        "recall": 0.401
+      },
+      "test": {
+        "tp": 5280,
+        "fp": 3023,
+        "fn": 62868,
+        "precision": 0.636,
+        "recall": 0.077
+      },
+      "all_laparoscopic": {
+        "tp": 30383,
+        "fp": 8476,
+        "fn": 100361,
+        "precision": 0.782,
+        "recall": 0.232
+      }
+    },
+    "frames": [
+      {
+        "key": "wses-laparoscopic-bleeding-ulcer-repair@350",
+        "clip": "wses-laparoscopic-bleeding-ulcer-repair",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.2023,
+        "predicted_fraction": 0.1514,
+        "tp": 8694,
+        "fp": 822,
+        "fn": 4225,
+        "precision": 0.914,
+        "recall": 0.673
+      },
+      {
+        "key": "wses-laparoscopic-bleeding-ulcer-repair@1050",
+        "clip": "wses-laparoscopic-bleeding-ulcer-repair",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0814,
+        "predicted_fraction": 0.1643,
+        "tp": 3663,
+        "fp": 3482,
+        "fn": 2006,
+        "precision": 0.513,
+        "recall": 0.646
+      },
+      {
+        "key": "wses-laparoscopic-bleeding-ulcer-repair@1751",
+        "clip": "wses-laparoscopic-bleeding-ulcer-repair",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0616,
+        "predicted_fraction": 0.0481,
+        "tp": 1044,
+        "fp": 427,
+        "fn": 3043,
+        "precision": 0.71,
+        "recall": 0.255
+      },
+      {
+        "key": "wses-laparoscopic-bleeding-ulcer-repair@2451",
+        "clip": "wses-laparoscopic-bleeding-ulcer-repair",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.1535,
+        "predicted_fraction": 0.1213,
+        "tp": 5310,
+        "fp": 702,
+        "fn": 5510,
+        "precision": 0.883,
+        "recall": 0.491
+      },
+      {
+        "key": "barroso-laparoscopic-inguinal-ring-suture@184",
+        "clip": "barroso-laparoscopic-inguinal-ring-suture",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0021,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 1062,
+        "precision": null,
+        "recall": 0.0
+      },
+      {
+        "key": "barroso-laparoscopic-inguinal-ring-suture@554",
+        "clip": "barroso-laparoscopic-inguinal-ring-suture",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0026,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 1336,
+        "precision": null,
+        "recall": 0.0
+      },
+      {
+        "key": "barroso-laparoscopic-inguinal-ring-suture@922",
+        "clip": "barroso-laparoscopic-inguinal-ring-suture",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0024,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 1257,
+        "precision": null,
+        "recall": 0.0
+      },
+      {
+        "key": "barroso-laparoscopic-inguinal-ring-suture@1292",
+        "clip": "barroso-laparoscopic-inguinal-ring-suture",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0038,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 1969,
+        "precision": null,
+        "recall": 0.0
+      },
+      {
+        "key": "kaplan-tlpd-technique-3@344",
+        "clip": "kaplan-tlpd-technique-3",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "kaplan-tlpd-technique-3@1033",
+        "clip": "kaplan-tlpd-technique-3",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "kaplan-tlpd-technique-3@1722",
+        "clip": "kaplan-tlpd-technique-3",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "kaplan-tlpd-technique-3@2411",
+        "clip": "kaplan-tlpd-technique-3",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "kaplan-tlpd-technique-6@223",
+        "clip": "kaplan-tlpd-technique-6",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.058,
+        "predicted_fraction": 0.018,
+        "tp": 4258,
+        "fp": 0,
+        "fn": 10901,
+        "precision": 1.0,
+        "recall": 0.281
+      },
+      {
+        "key": "kaplan-tlpd-technique-6@670",
+        "clip": "kaplan-tlpd-technique-6",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0343,
+        "predicted_fraction": 0.0089,
+        "tp": 2134,
+        "fp": 20,
+        "fn": 6184,
+        "precision": 0.991,
+        "recall": 0.257
+      },
+      {
+        "key": "kaplan-tlpd-technique-6@1116",
+        "clip": "kaplan-tlpd-technique-6",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "kaplan-tlpd-technique-6@1563",
+        "clip": "kaplan-tlpd-technique-6",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-hernia-2@561",
+        "clip": "anpol42-tep-hernia-2",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-hernia-2@1683",
+        "clip": "anpol42-tep-hernia-2",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-hernia-2@2805",
+        "clip": "anpol42-tep-hernia-2",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-hernia-2@3927",
+        "clip": "anpol42-tep-hernia-2",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-hernia-4@491",
+        "clip": "anpol42-tep-hernia-4",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-hernia-4@1472",
+        "clip": "anpol42-tep-hernia-4",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-hernia-4@2453",
+        "clip": "anpol42-tep-hernia-4",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-hernia-4@3434",
+        "clip": "anpol42-tep-hernia-4",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-recurrent-hernia@34",
+        "clip": "anpol42-tep-recurrent-hernia",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-recurrent-hernia@101",
+        "clip": "anpol42-tep-recurrent-hernia",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-recurrent-hernia@168",
+        "clip": "anpol42-tep-recurrent-hernia",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-recurrent-hernia@235",
+        "clip": "anpol42-tep-recurrent-hernia",
+        "split": "dev",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "gupta-gallbladder-torsion-cholecystectomy@430",
+        "clip": "gupta-gallbladder-torsion-cholecystectomy",
+        "split": "dev",
+        "view": "open_surgery",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0104,
+        "tp": 0,
+        "fp": 761,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null
+      },
+      {
+        "key": "gupta-gallbladder-torsion-cholecystectomy@1289",
+        "clip": "gupta-gallbladder-torsion-cholecystectomy",
+        "split": "dev",
+        "view": "open_surgery",
+        "usable": false,
+        "refusal": "OUT_OF_DOMAIN",
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0053,
+        "tp": 0,
+        "fp": 298,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null
+      },
+      {
+        "key": "gupta-gallbladder-torsion-cholecystectomy@2148",
+        "clip": "gupta-gallbladder-torsion-cholecystectomy",
+        "split": "dev",
+        "view": "open_surgery",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0759,
+        "tp": 0,
+        "fp": 1005,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null
+      },
+      {
+        "key": "gupta-gallbladder-torsion-cholecystectomy@3007",
+        "clip": "gupta-gallbladder-torsion-cholecystectomy",
+        "split": "dev",
+        "view": "open_surgery",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "boer-gallbladder-torsion-cholecystectomy@129",
+        "clip": "boer-gallbladder-torsion-cholecystectomy",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0064,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 1941,
+        "precision": null,
+        "recall": 0.0
+      },
+      {
+        "key": "boer-gallbladder-torsion-cholecystectomy@388",
+        "clip": "boer-gallbladder-torsion-cholecystectomy",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "boer-gallbladder-torsion-cholecystectomy@647",
+        "clip": "boer-gallbladder-torsion-cholecystectomy",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0245,
+        "predicted_fraction": 0.0086,
+        "tp": 1760,
+        "fp": 0,
+        "fn": 5703,
+        "precision": 1.0,
+        "recall": 0.236
+      },
+      {
+        "key": "boer-gallbladder-torsion-cholecystectomy@906",
+        "clip": "boer-gallbladder-torsion-cholecystectomy",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0553,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 15447,
+        "precision": null,
+        "recall": 0.0
+      },
+      {
+        "key": "kavalakat-omental-infarction@232",
+        "clip": "kavalakat-omental-infarction",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0285,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 1808,
+        "precision": null,
+        "recall": 0.0
+      },
+      {
+        "key": "kavalakat-omental-infarction@697",
+        "clip": "kavalakat-omental-infarction",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "kavalakat-omental-infarction@1162",
+        "clip": "kavalakat-omental-infarction",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "kavalakat-omental-infarction@1627",
+        "clip": "kavalakat-omental-infarction",
+        "split": "test",
+        "view": "inside_port",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "kaplan-tlpd-diagnostic-laparoscopy@187",
+        "clip": "kaplan-tlpd-diagnostic-laparoscopy",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "kaplan-tlpd-diagnostic-laparoscopy@561",
+        "clip": "kaplan-tlpd-diagnostic-laparoscopy",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.1138,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "kaplan-tlpd-diagnostic-laparoscopy@935",
+        "clip": "kaplan-tlpd-diagnostic-laparoscopy",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0103,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 3130,
+        "precision": null,
+        "recall": 0.0
+      },
+      {
+        "key": "kaplan-tlpd-diagnostic-laparoscopy@1309",
+        "clip": "kaplan-tlpd-diagnostic-laparoscopy",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "kaplan-tlpd-technique-5@343",
+        "clip": "kaplan-tlpd-technique-5",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "kaplan-tlpd-technique-5@1029",
+        "clip": "kaplan-tlpd-technique-5",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.1192,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 33154,
+        "precision": null,
+        "recall": 0.0
+      },
+      {
+        "key": "kaplan-tlpd-technique-5@1715",
+        "clip": "kaplan-tlpd-technique-5",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "kaplan-tlpd-technique-5@2401",
+        "clip": "kaplan-tlpd-technique-5",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.014,
+        "predicted_fraction": 0.0168,
+        "tp": 3520,
+        "fp": 0,
+        "fn": 651,
+        "precision": 1.0,
+        "recall": 0.844
+      },
+      {
+        "key": "anpol42-tep-hernia-1@70",
+        "clip": "anpol42-tep-hernia-1",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.018,
+        "tp": 0,
+        "fp": 1115,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-hernia-1@210",
+        "clip": "anpol42-tep-hernia-1",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0313,
+        "tp": 0,
+        "fp": 1908,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-hernia-1@351",
+        "clip": "anpol42-tep-hernia-1",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-hernia-1@491",
+        "clip": "anpol42-tep-hernia-1",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-hernia-3@485",
+        "clip": "anpol42-tep-hernia-3",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-hernia-3@1455",
+        "clip": "anpol42-tep-hernia-3",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-hernia-3@2426",
+        "clip": "anpol42-tep-hernia-3",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-hernia-3@3396",
+        "clip": "anpol42-tep-hernia-3",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0139,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 1034,
+        "precision": null,
+        "recall": 0.0
+      },
+      {
+        "key": "anpol42-tep-indirect-hernia@66",
+        "clip": "anpol42-tep-indirect-hernia",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": false,
+        "refusal": "OUT_OF_DOMAIN",
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-indirect-hernia@199",
+        "clip": "anpol42-tep-indirect-hernia",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-indirect-hernia@331",
+        "clip": "anpol42-tep-indirect-hernia",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "anpol42-tep-indirect-hernia@464",
+        "clip": "anpol42-tep-indirect-hernia",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "admlsir-real-surgical-smoke-D-V09@13",
+        "clip": "admlsir-real-surgical-smoke-D-V09",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "admlsir-real-surgical-smoke-D-V09@38",
+        "clip": "admlsir-real-surgical-smoke-D-V09",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "admlsir-real-surgical-smoke-D-V09@64",
+        "clip": "admlsir-real-surgical-smoke-D-V09",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      {
+        "key": "admlsir-real-surgical-smoke-D-V09@89",
+        "clip": "admlsir-real-surgical-smoke-D-V09",
+        "split": "test",
+        "view": "laparoscopic",
+        "usable": true,
+        "refusal": null,
+        "true_blood_fraction": 0.0,
+        "predicted_fraction": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      }
+    ]
+  },
+  "clips": [
+    {
+      "clip": "wses-laparoscopic-bleeding-ulcer-repair",
+      "split": "dev",
+      "domain": "laparoscopic",
+      "frames": 561,
+      "before": {
+        "usable": 541,
+        "record_refusals": [],
+        "mm_per_px": 0.28746,
+        "implied_field_width_mm": 92.0,
+        "peak_volume_ml": 5.645,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "peak slope 0.00 ml/min never reached 0.35 ml/min on a still field with a reliable measurement",
+        "checkpoint_state": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null
+      },
+      "after": {
+        "usable": 536,
+        "rejected_by": {
+          "OCCLUDED": 20,
+          "EXPOSURE_CLIPPED": 20,
+          "OUT_OF_DOMAIN": 5,
+          "OUT_OF_FOCUS": 1
+        },
+        "record_refusals": [],
+        "scale_status": "inconsistent",
+        "scale_frames": "281/536",
+        "scale_robust_cv": 0.2925,
+        "mm_per_px": 0.19258,
+        "implied_field_width_mm": 61.6,
+        "peak_field_fraction": 0.30417,
+        "median_field_fraction": 0.13516,
+        "volume_status": "CANNOT_MEASURE",
+        "volume_reason": "the shaft scale varied by 29% (robust CV) across the case; a volume needs it under 25%",
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "the rate reached 8.00 %/min on 221 frames (peak 287.73 %/min), and every one was stopped: 1 by the frame was refused by a quality or domain gate; 90 by the camera was moving; 130 by an instrument entered or left inside the fit window",
+        "onset_blocked_by": {
+          "camera_motion": 90,
+          "instrument_count_changed": 130,
+          "unmeasurable": 1
+        },
+        "onset_vs_visible_bleeding": "no onset; visible new bleeding noted",
+        "checkpoint_if_enabled": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null,
+        "wide_cue": {
+          "frames_with_cue": 6,
+          "frames_with_cue_before_armed": 4,
+          "measurable_frames_before_armed": 155,
+          "seen_wide": false
+        }
+      },
+      "visible_bleeding": {
+        "new_bleeding": [
+          {
+            "from_s": 66,
+            "to_s": 72,
+            "confidence": "medium",
+            "what": "fresh bright-red blood appears on the omentum/stomach wall below the suture site (absent at 64-66 s); camera also shifts, so part may be revealed rather than new"
+          },
+          {
+            "from_s": 82,
+            "to_s": 92,
+            "confidence": "low",
+            "what": "gutter pool looks larger and fresher red at 84-92 s after suturing; could be the camera re-framing the existing pool"
+          }
+        ],
+        "non_laparoscopic_spans": [
+          {
+            "from_s": 0,
+            "to_s": 3.5,
+            "confidence": "high",
+            "what": "black screen and title card"
+          }
+        ],
+        "summary": "After a 3.5 s title card the first surgical frame already holds a dark blood pool in the subhepatic gutter, present throughout the ulcer suturing; fresh red staining appears around 70 s and the pool looks larger near the end, but 2 s sampling cannot separate new blood from re-framing."
+      }
+    },
+    {
+      "clip": "barroso-laparoscopic-inguinal-ring-suture",
+      "split": "dev",
+      "domain": "laparoscopic",
+      "frames": 296,
+      "before": {
+        "usable": 294,
+        "record_refusals": [],
+        "mm_per_px": 0.2,
+        "implied_field_width_mm": 192.0,
+        "peak_volume_ml": 9.791,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "peak slope 17.87 ml/min never reached 0.35 ml/min on a still field with a reliable measurement",
+        "checkpoint_state": "held",
+        "checkpoint_held_at_s": 32.9,
+        "critical_approach_from_s": 31.4
+      },
+      "after": {
+        "usable": 294,
+        "rejected_by": {
+          "OUT_OF_FOCUS": 2,
+          "OCCLUDED": 2,
+          "EXPOSURE_CLIPPED": 1
+        },
+        "record_refusals": [],
+        "scale_status": "sparse",
+        "scale_frames": "19/294",
+        "scale_robust_cv": 0.4333,
+        "mm_per_px": 0.11261,
+        "implied_field_width_mm": 108.1,
+        "peak_field_fraction": 0.0,
+        "median_field_fraction": 0.0,
+        "volume_status": "CANNOT_MEASURE",
+        "volume_reason": "only 19 of 294 measurable frames (6%) carried a shaft scale; at least 25% and 50 frames are needed",
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "the fitted rate never reached 8.00 %/min (peak 0.00 %/min over the whole clip)",
+        "onset_blocked_by": {},
+        "onset_vs_visible_bleeding": "no onset; visible new bleeding noted",
+        "checkpoint_if_enabled": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null,
+        "wide_cue": {
+          "frames_with_cue": 1,
+          "frames_with_cue_before_armed": 1,
+          "measurable_frames_before_armed": 294,
+          "seen_wide": false
+        }
+      },
+      "visible_bleeding": {
+        "new_bleeding": [
+          {
+            "from_s": 30,
+            "to_s": 34,
+            "confidence": "low",
+            "what": "after the needle passes, one or two extra small dark-red puncture spots appear beside the cord and the existing spot looks slightly larger"
+          }
+        ],
+        "non_laparoscopic_spans": [
+          {
+            "from_s": 0,
+            "to_s": 1,
+            "confidence": "high",
+            "what": "black frame"
+          }
+        ],
+        "summary": "Clean preperitoneal inguinal view with one small dark blood spot at a needle puncture visible from the first frame; a couple of tiny puncture spots appear after suturing, otherwise no bleeding."
+      }
+    },
+    {
+      "clip": "kaplan-tlpd-technique-3",
+      "split": "dev",
+      "domain": "laparoscopic",
+      "frames": 551,
+      "before": {
+        "usable": 551,
+        "record_refusals": [],
+        "mm_per_px": 0.32077,
+        "implied_field_width_mm": 205.3,
+        "peak_volume_ml": 22.293,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "peak slope 19.13 ml/min never reached 0.35 ml/min on a still field with a reliable measurement",
+        "checkpoint_state": "held",
+        "checkpoint_held_at_s": 29.4,
+        "critical_approach_from_s": 27.8
+      },
+      "after": {
+        "usable": 551,
+        "rejected_by": {},
+        "record_refusals": [],
+        "scale_status": "inconsistent",
+        "scale_frames": "237/551",
+        "scale_robust_cv": 0.5913,
+        "mm_per_px": 0.1131,
+        "implied_field_width_mm": 72.4,
+        "peak_field_fraction": 0.11196,
+        "median_field_fraction": 0.0073,
+        "volume_status": "CANNOT_MEASURE",
+        "volume_reason": "the shaft scale varied by 59% (robust CV) across the case; a volume needs it under 25%",
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "the rate reached 8.00 %/min on 155 frames (peak 94.21 %/min), and every one was stopped: 42 by the camera was moving; 13 by the blood area was below the reliable size; 100 by an instrument entered or left inside the fit window",
+        "onset_blocked_by": {
+          "instrument_count_changed": 100,
+          "camera_motion": 42,
+          "unreliable_measurement": 13
+        },
+        "onset_vs_visible_bleeding": "no onset; visible new bleeding noted",
+        "checkpoint_if_enabled": "held",
+        "checkpoint_held_at_s": 85.0,
+        "critical_approach_from_s": 83.4,
+        "wide_cue": {
+          "frames_with_cue": 104,
+          "frames_with_cue_before_armed": 6,
+          "measurable_frames_before_armed": 115,
+          "seen_wide": true
+        }
+      },
+      "visible_bleeding": {
+        "new_bleeding": [
+          {
+            "from_s": 6,
+            "to_s": 10,
+            "confidence": "low",
+            "what": "blood-stained dissection field appears; mostly the camera moving to an already-bloodied area"
+          },
+          {
+            "from_s": 98,
+            "to_s": 106,
+            "confidence": "medium",
+            "what": "fresh bright-red blood wells up in the choledochal dissection bed (102-106 s)"
+          }
+        ],
+        "non_laparoscopic_spans": [],
+        "summary": "Adhesiolysis starts bloodless, then pancreatic/hepatoduodenal dissection with blood staining, char and small pools throughout; clearest fresh bleeding is during the common bile duct dissection around 100-106 s."
+      }
+    },
+    {
+      "clip": "kaplan-tlpd-technique-6",
+      "split": "dev",
+      "domain": "laparoscopic",
+      "frames": 358,
+      "before": {
+        "usable": 358,
+        "record_refusals": [],
+        "mm_per_px": 0.21948,
+        "implied_field_width_mm": 140.5,
+        "peak_volume_ml": 0.512,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "peak slope 0.00 ml/min never reached 0.35 ml/min on a still field with a reliable measurement",
+        "checkpoint_state": "held",
+        "checkpoint_held_at_s": 28.4,
+        "critical_approach_from_s": 26.8
+      },
+      "after": {
+        "usable": 330,
+        "rejected_by": {
+          "OUT_OF_DOMAIN": 28
+        },
+        "record_refusals": [],
+        "scale_status": "inconsistent",
+        "scale_frames": "220/330",
+        "scale_robust_cv": 0.3418,
+        "mm_per_px": 0.09303,
+        "implied_field_width_mm": 59.5,
+        "peak_field_fraction": 0.11507,
+        "median_field_fraction": 0.00676,
+        "volume_status": "CANNOT_MEASURE",
+        "volume_reason": "the shaft scale varied by 34% (robust CV) across the case; a volume needs it under 25%",
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "the rate reached 8.00 %/min on 100 frames (peak 125.26 %/min), and every one was stopped: 45 by the camera was moving; 12 by the blood area was below the reliable size; 43 by an instrument entered or left inside the fit window",
+        "onset_blocked_by": {
+          "instrument_count_changed": 43,
+          "camera_motion": 45,
+          "unreliable_measurement": 12
+        },
+        "onset_vs_visible_bleeding": "no onset; visible new bleeding noted",
+        "checkpoint_if_enabled": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null,
+        "wide_cue": {
+          "frames_with_cue": 44,
+          "frames_with_cue_before_armed": 16,
+          "measurable_frames_before_armed": 120,
+          "seen_wide": false
+        }
+      },
+      "visible_bleeding": {
+        "new_bleeding": [
+          {
+            "from_s": 10,
+            "to_s": 14,
+            "confidence": "medium",
+            "what": "vivid red bleeding point at the pancreatic stump/anastomosis at 12 s"
+          },
+          {
+            "from_s": 20,
+            "to_s": 30,
+            "confidence": "low",
+            "what": "dark pool at lower left of the anastomosis looks larger 22-28 s; may be framing"
+          }
+        ],
+        "non_laparoscopic_spans": [
+          {
+            "from_s": 65,
+            "to_s": 71,
+            "confidence": "high",
+            "what": "external view: drapes, port sites and gloved hand"
+          }
+        ],
+        "summary": "Anastomosis field with blood-stained stump and small dark pools from the start; a bright bleeding point near 12 s, then a cleaner gastroenterostomy; ends on the outside of the abdomen."
+      }
+    },
+    {
+      "clip": "anpol42-tep-hernia-2",
+      "split": "dev",
+      "domain": "laparoscopic",
+      "frames": 898,
+      "before": {
+        "usable": 898,
+        "record_refusals": [
+          "NO_SCALE_REFERENCE"
+        ],
+        "mm_per_px": null,
+        "implied_field_width_mm": null,
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "no frame was both measurable and above the pool size where a rate estimate means anything, so no onset was declared",
+        "checkpoint_state": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null
+      },
+      "after": {
+        "usable": 898,
+        "rejected_by": {},
+        "record_refusals": [],
+        "scale_status": "none",
+        "scale_frames": "0/898",
+        "scale_robust_cv": null,
+        "mm_per_px": null,
+        "implied_field_width_mm": null,
+        "peak_field_fraction": 0.0,
+        "median_field_fraction": 0.0,
+        "volume_status": "CANNOT_MEASURE",
+        "volume_reason": "no frame carried a measurable instrument shaft",
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "the fitted rate never reached 8.00 %/min (peak 0.00 %/min over the whole clip)",
+        "onset_blocked_by": {},
+        "onset_vs_visible_bleeding": "no onset; none noted",
+        "checkpoint_if_enabled": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null,
+        "wide_cue": {
+          "frames_with_cue": 0,
+          "frames_with_cue_before_armed": 0,
+          "measurable_frames_before_armed": 898,
+          "seen_wide": false
+        }
+      },
+      "visible_bleeding": {
+        "new_bleeding": [],
+        "non_laparoscopic_spans": [],
+        "summary": "TEP dissection with maroon blood staining/bruising of the areolar tissue and a dark charred band present throughout; no visible new bleeding at 2 s sampling."
+      }
+    },
+    {
+      "clip": "anpol42-tep-hernia-4",
+      "split": "dev",
+      "domain": "laparoscopic",
+      "frames": 785,
+      "before": {
+        "usable": 785,
+        "record_refusals": [
+          "NO_SCALE_REFERENCE"
+        ],
+        "mm_per_px": null,
+        "implied_field_width_mm": null,
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "no frame was both measurable and above the pool size where a rate estimate means anything, so no onset was declared",
+        "checkpoint_state": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null
+      },
+      "after": {
+        "usable": 783,
+        "rejected_by": {
+          "OUT_OF_DOMAIN": 2
+        },
+        "record_refusals": [],
+        "scale_status": "none",
+        "scale_frames": "0/783",
+        "scale_robust_cv": null,
+        "mm_per_px": null,
+        "implied_field_width_mm": null,
+        "peak_field_fraction": 0.0,
+        "median_field_fraction": 0.0,
+        "volume_status": "CANNOT_MEASURE",
+        "volume_reason": "no frame carried a measurable instrument shaft",
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "the fitted rate never reached 8.00 %/min (peak 0.00 %/min over the whole clip)",
+        "onset_blocked_by": {},
+        "onset_vs_visible_bleeding": "no onset; visible new bleeding noted",
+        "checkpoint_if_enabled": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null,
+        "wide_cue": {
+          "frames_with_cue": 0,
+          "frames_with_cue_before_armed": 0,
+          "measurable_frames_before_armed": 783,
+          "seen_wide": false
+        }
+      },
+      "visible_bleeding": {
+        "new_bleeding": [
+          {
+            "from_s": 110,
+            "to_s": 126,
+            "confidence": "low",
+            "what": "dark wet blood/clot visible in the slit between mesh leaves; likely existing blood uncovered as the mesh moves rather than new bleeding"
+          }
+        ],
+        "non_laparoscopic_spans": [],
+        "summary": "Mesh placement over a dark red, blood-stained preperitoneal field; from ~72 s the new mesh picks up purple blood stains, and dark blood sits in the cord slit late on, but no clear active bleeding. Last 8 s very dark."
+      }
+    },
+    {
+      "clip": "anpol42-tep-recurrent-hernia",
+      "split": "dev",
+      "domain": "laparoscopic",
+      "frames": 54,
+      "before": {
+        "usable": 54,
+        "record_refusals": [
+          "NO_SCALE_REFERENCE"
+        ],
+        "mm_per_px": null,
+        "implied_field_width_mm": null,
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "no frame was both measurable and above the pool size where a rate estimate means anything, so no onset was declared",
+        "checkpoint_state": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null
+      },
+      "after": {
+        "usable": 54,
+        "rejected_by": {},
+        "record_refusals": [],
+        "scale_status": "sparse",
+        "scale_frames": "23/54",
+        "scale_robust_cv": 0.1178,
+        "mm_per_px": 0.29686,
+        "implied_field_width_mm": 95.0,
+        "peak_field_fraction": 0.03273,
+        "median_field_fraction": 0.0,
+        "volume_status": "CANNOT_MEASURE",
+        "volume_reason": "only 23 of 54 measurable frames (43%) carried a shaft scale; at least 25% and 50 frames are needed",
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "the fitted rate never reached 8.00 %/min (peak 6.06 %/min over the whole clip)",
+        "onset_blocked_by": {},
+        "onset_vs_visible_bleeding": "no onset; visible new bleeding noted",
+        "checkpoint_if_enabled": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null,
+        "wide_cue": {
+          "frames_with_cue": 0,
+          "frames_with_cue_before_armed": 0,
+          "measurable_frames_before_armed": 54,
+          "seen_wide": false
+        }
+      },
+      "visible_bleeding": {
+        "new_bleeding": [
+          {
+            "from_s": 8,
+            "to_s": 9,
+            "confidence": "low",
+            "what": "darker blood-stained fat appears as the camera advances; cannot tell from new bleeding"
+          }
+        ],
+        "non_laparoscopic_spans": [],
+        "summary": "Short clip of red muscle and hernia sac with no clear blood for 7 s, then the view moves into a darker blood-stained fatty area in the last two frames."
+      }
+    },
+    {
+      "clip": "gupta-gallbladder-torsion-cholecystectomy",
+      "split": "dev",
+      "domain": "open",
+      "frames": 688,
+      "before": {
+        "usable": 688,
+        "record_refusals": [],
+        "mm_per_px": 0.08418,
+        "implied_field_width_mm": 26.9,
+        "peak_volume_ml": 0.0,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "no frame was both measurable and above the pool size where a rate estimate means anything, so no onset was declared",
+        "checkpoint_state": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null
+      },
+      "after": {
+        "usable": 374,
+        "rejected_by": {
+          "OUT_OF_DOMAIN": 314
+        },
+        "record_refusals": [
+          "OUT_OF_DOMAIN"
+        ],
+        "scale_status": "none",
+        "scale_frames": "0/374",
+        "scale_robust_cv": null,
+        "mm_per_px": null,
+        "implied_field_width_mm": null,
+        "peak_field_fraction": 0.01557,
+        "median_field_fraction": 0.0,
+        "volume_status": "CANNOT_MEASURE",
+        "volume_reason": "no frame carried a measurable instrument shaft",
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "the rate reached 8.00 %/min on 14 frames (peak 11.87 %/min), and every one was stopped: 8 by the camera was moving; 4 by the blood area was below the reliable size; 2 by an instrument entered or left inside the fit window",
+        "onset_blocked_by": {
+          "unreliable_measurement": 4,
+          "instrument_count_changed": 2,
+          "camera_motion": 8
+        },
+        "onset_vs_visible_bleeding": "no onset; visible new bleeding noted",
+        "checkpoint_if_enabled": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null,
+        "wide_cue": {
+          "frames_with_cue": 0,
+          "frames_with_cue_before_armed": 0,
+          "measurable_frames_before_armed": 374,
+          "seen_wide": false
+        }
+      },
+      "visible_bleeding": {
+        "new_bleeding": [
+          {
+            "from_s": 70,
+            "to_s": 90,
+            "confidence": "low",
+            "what": "bright red blood pooling around the cystic pedicle while clamping; colour saturation makes blood vs tissue unreliable"
+          }
+        ],
+        "non_laparoscopic_spans": [
+          {
+            "from_s": 0,
+            "to_s": 115,
+            "confidence": "high",
+            "what": "entire clip is open surgery (gloved hands, clamps), oversaturated colour"
+          }
+        ],
+        "summary": "Open cholecystectomy of a torsed gallbladder with blood on gloves and wet red field throughout; heavy red oversaturation makes any onset judgement unreliable."
+      }
+    },
+    {
+      "clip": "boer-gallbladder-torsion-cholecystectomy",
+      "split": "test",
+      "domain": "laparoscopic",
+      "frames": 207,
+      "before": {
+        "usable": 207,
+        "record_refusals": [],
+        "mm_per_px": 0.21739,
+        "implied_field_width_mm": 139.1,
+        "peak_volume_ml": 0.33,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "no frame was both measurable and above the pool size where a rate estimate means anything, so no onset was declared",
+        "checkpoint_state": "held",
+        "checkpoint_held_at_s": 28.6,
+        "critical_approach_from_s": 27.0
+      },
+      "after": {
+        "usable": 207,
+        "rejected_by": {},
+        "record_refusals": [],
+        "scale_status": "inconsistent",
+        "scale_frames": "117/207",
+        "scale_robust_cv": 0.4095,
+        "mm_per_px": 0.12715,
+        "implied_field_width_mm": 81.4,
+        "peak_field_fraction": 0.0358,
+        "median_field_fraction": 0.00699,
+        "volume_status": "CANNOT_MEASURE",
+        "volume_reason": "the shaft scale varied by 41% (robust CV) across the case; a volume needs it under 25%",
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "the rate reached 8.00 %/min on 62 frames (peak 40.96 %/min), and every one was stopped: 23 by the camera was moving; 5 by the blood area was below the reliable size; 34 by an instrument entered or left inside the fit window",
+        "onset_blocked_by": {
+          "instrument_count_changed": 34,
+          "camera_motion": 23,
+          "unreliable_measurement": 5
+        },
+        "onset_vs_visible_bleeding": "no onset; visible new bleeding noted",
+        "checkpoint_if_enabled": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null,
+        "wide_cue": {
+          "frames_with_cue": 55,
+          "frames_with_cue_before_armed": 45,
+          "measurable_frames_before_armed": 140,
+          "seen_wide": false
+        }
+      },
+      "visible_bleeding": {
+        "new_bleeding": [
+          {
+            "from_s": 26,
+            "to_s": 40,
+            "confidence": "medium",
+            "what": "bright red blood and clot collect in the gallbladder bed/pedicle as it is dissected and grows by 34-40 s"
+          }
+        ],
+        "non_laparoscopic_spans": [],
+        "summary": "Necrotic dark gallbladder with only a small red area at the neck early on; blood appears in the dissection bed from ~26 s and is clearly more by the end."
+      }
+    },
+    {
+      "clip": "kavalakat-omental-infarction",
+      "split": "test",
+      "domain": "laparoscopic",
+      "frames": 372,
+      "before": {
+        "usable": 372,
+        "record_refusals": [],
+        "mm_per_px": 0.38462,
+        "implied_field_width_mm": 147.7,
+        "peak_volume_ml": 14.118,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "peak slope 98.11 ml/min never reached 0.35 ml/min on a still field with a reliable measurement",
+        "checkpoint_state": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null
+      },
+      "after": {
+        "usable": 367,
+        "rejected_by": {
+          "OUT_OF_DOMAIN": 5
+        },
+        "record_refusals": [],
+        "scale_status": "sparse",
+        "scale_frames": "37/367",
+        "scale_robust_cv": 0.3402,
+        "mm_per_px": 0.23757,
+        "implied_field_width_mm": 91.2,
+        "peak_field_fraction": 0.18457,
+        "median_field_fraction": 0.06009,
+        "volume_status": "CANNOT_MEASURE",
+        "volume_reason": "only 37 of 367 measurable frames (10%) carried a shaft scale; at least 25% and 50 frames are needed",
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "the rate reached 8.00 %/min on 119 frames (peak 153.41 %/min), and every one was stopped: 62 by the camera was moving; 57 by an instrument entered or left inside the fit window",
+        "onset_blocked_by": {
+          "camera_motion": 62,
+          "instrument_count_changed": 57
+        },
+        "onset_vs_visible_bleeding": "no onset; visible new bleeding noted",
+        "checkpoint_if_enabled": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null,
+        "wide_cue": {
+          "frames_with_cue": 9,
+          "frames_with_cue_before_armed": 9,
+          "measurable_frames_before_armed": 367,
+          "seen_wide": false
+        }
+      },
+      "visible_bleeding": {
+        "new_bleeding": [
+          {
+            "from_s": 8,
+            "to_s": 12,
+            "confidence": "medium",
+            "what": "blood rivulet runs down the pale abdominal wall from the haemorrhagic omentum at 10 s"
+          },
+          {
+            "from_s": 16,
+            "to_s": 22,
+            "confidence": "medium",
+            "what": "trickle seen again and longer with blood gathering at the omental edge (18-22 s); could partly be the camera returning"
+          }
+        ],
+        "non_laparoscopic_spans": [
+          {
+            "from_s": 64,
+            "to_s": 75,
+            "confidence": "high",
+            "what": "camera inside the port/retrieval sleeve"
+          }
+        ],
+        "summary": "Haemorrhagic infarcted omentum with a visible blood trickle down the wall around 10-22 s, then mobilisation and bagging; ends inside the port with blood-smeared sleeve."
+      }
+    },
+    {
+      "clip": "kaplan-tlpd-diagnostic-laparoscopy",
+      "split": "test",
+      "domain": "laparoscopic",
+      "frames": 300,
+      "before": {
+        "usable": 300,
+        "record_refusals": [],
+        "mm_per_px": 0.26625,
+        "implied_field_width_mm": 170.4,
+        "peak_volume_ml": 6.723,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "no frame was both measurable and above the pool size where a rate estimate means anything, so no onset was declared",
+        "checkpoint_state": "held",
+        "checkpoint_held_at_s": 27.4,
+        "critical_approach_from_s": 25.8
+      },
+      "after": {
+        "usable": 297,
+        "rejected_by": {
+          "OUT_OF_DOMAIN": 3
+        },
+        "record_refusals": [],
+        "scale_status": "inconsistent",
+        "scale_frames": "113/297",
+        "scale_robust_cv": 0.4774,
+        "mm_per_px": 0.10362,
+        "implied_field_width_mm": 66.3,
+        "peak_field_fraction": 0.25831,
+        "median_field_fraction": 0.03691,
+        "volume_status": "CANNOT_MEASURE",
+        "volume_reason": "the shaft scale varied by 48% (robust CV) across the case; a volume needs it under 25%",
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "the rate reached 8.00 %/min on 61 frames (peak 404.55 %/min), and every one was stopped: 43 by the camera was moving; 18 by an instrument entered or left inside the fit window",
+        "onset_blocked_by": {
+          "camera_motion": 43,
+          "instrument_count_changed": 18
+        },
+        "onset_vs_visible_bleeding": "no onset; visible new bleeding noted",
+        "checkpoint_if_enabled": "held",
+        "checkpoint_held_at_s": 43.2,
+        "critical_approach_from_s": 41.6,
+        "wide_cue": {
+          "frames_with_cue": 48,
+          "frames_with_cue_before_armed": 16,
+          "measurable_frames_before_armed": 112,
+          "seen_wide": true
+        }
+      },
+      "visible_bleeding": {
+        "new_bleeding": [
+          {
+            "from_s": 16,
+            "to_s": 20,
+            "confidence": "low",
+            "what": "blood-stained gauze and red raw surface come into view; camera move, not clearly new"
+          },
+          {
+            "from_s": 52,
+            "to_s": 58,
+            "confidence": "medium",
+            "what": "dark blood/clot collects below the sutured site at the duodenum (54-58 s)"
+          }
+        ],
+        "non_laparoscopic_spans": [],
+        "summary": "Bloodless survey of liver and omentum, then blood-stained gauze packing and suturing; a small dark clot at the suture point grows into visible blood below it by 54-58 s."
+      }
+    },
+    {
+      "clip": "kaplan-tlpd-technique-5",
+      "split": "test",
+      "domain": "laparoscopic",
+      "frames": 549,
+      "before": {
+        "usable": 549,
+        "record_refusals": [],
+        "mm_per_px": 0.25403,
+        "implied_field_width_mm": 162.6,
+        "peak_volume_ml": 0.0,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "no frame was both measurable and above the pool size where a rate estimate means anything, so no onset was declared",
+        "checkpoint_state": "held",
+        "checkpoint_held_at_s": 28.0,
+        "critical_approach_from_s": 26.4
+      },
+      "after": {
+        "usable": 549,
+        "rejected_by": {},
+        "record_refusals": [],
+        "scale_status": "inconsistent",
+        "scale_frames": "323/549",
+        "scale_robust_cv": 0.4343,
+        "mm_per_px": 0.09768,
+        "implied_field_width_mm": 62.5,
+        "peak_field_fraction": 0.18732,
+        "median_field_fraction": 0.0,
+        "volume_status": "CANNOT_MEASURE",
+        "volume_reason": "the shaft scale varied by 43% (robust CV) across the case; a volume needs it under 25%",
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "the rate reached 8.00 %/min on 154 frames (peak 196.94 %/min), and every one was stopped: 52 by the camera was moving; 8 by the blood area was below the reliable size; 94 by an instrument entered or left inside the fit window",
+        "onset_blocked_by": {
+          "camera_motion": 52,
+          "instrument_count_changed": 94,
+          "unreliable_measurement": 8
+        },
+        "onset_vs_visible_bleeding": "no onset; visible new bleeding noted",
+        "checkpoint_if_enabled": "held",
+        "checkpoint_held_at_s": 88.0,
+        "critical_approach_from_s": 86.4,
+        "wide_cue": {
+          "frames_with_cue": 89,
+          "frames_with_cue_before_armed": 10,
+          "measurable_frames_before_armed": 119,
+          "seen_wide": true
+        }
+      },
+      "visible_bleeding": {
+        "new_bleeding": [
+          {
+            "from_s": 20,
+            "to_s": 26,
+            "confidence": "medium",
+            "what": "bright red blood welling during porto-uncinate dissection"
+          },
+          {
+            "from_s": 48,
+            "to_s": 52,
+            "confidence": "low",
+            "what": "large bright red pool in the lower field after specimen bagging; may be existing pool newly in view"
+          },
+          {
+            "from_s": 94,
+            "to_s": 106,
+            "confidence": "medium",
+            "what": "fresh red blood on the jejunum/anastomosis and a red pool at left (96-104 s)"
+          }
+        ],
+        "non_laparoscopic_spans": [],
+        "summary": "Pancreaticoduodenectomy steps in a bloody field: red pool at start, fresh bleeding in the uncinate dissection (~22 s), a pooled field around 50-62 s, and fresh blood on the anastomosis near 96-104 s."
+      }
+    },
+    {
+      "clip": "anpol42-tep-hernia-1",
+      "split": "test",
+      "domain": "laparoscopic",
+      "frames": 113,
+      "before": {
+        "usable": 113,
+        "record_refusals": [],
+        "mm_per_px": 0.16129,
+        "implied_field_width_mm": 51.6,
+        "peak_volume_ml": 0.0,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "no frame was both measurable and above the pool size where a rate estimate means anything, so no onset was declared",
+        "checkpoint_state": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null
+      },
+      "after": {
+        "usable": 112,
+        "rejected_by": {
+          "OUT_OF_DOMAIN": 1
+        },
+        "record_refusals": [],
+        "scale_status": "sparse",
+        "scale_frames": "3/112",
+        "scale_robust_cv": 0.6055,
+        "mm_per_px": 0.14399,
+        "implied_field_width_mm": 46.1,
+        "peak_field_fraction": 0.09773,
+        "median_field_fraction": 0.04561,
+        "volume_status": "CANNOT_MEASURE",
+        "volume_reason": "only 3 of 112 measurable frames (3%) carried a shaft scale; at least 25% and 50 frames are needed",
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "the rate reached 8.00 %/min on 21 frames (peak 130.48 %/min), and every one was stopped: 10 by the camera was moving; 9 by an instrument entered or left inside the fit window; 2 by the CUSUM had not confirmed a sustained step",
+        "onset_blocked_by": {
+          "cusum_not_confirmed": 2,
+          "instrument_count_changed": 9,
+          "camera_motion": 10
+        },
+        "onset_vs_visible_bleeding": "no onset; none noted",
+        "checkpoint_if_enabled": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null,
+        "wide_cue": {
+          "frames_with_cue": 0,
+          "frames_with_cue_before_armed": 0,
+          "measurable_frames_before_armed": 112,
+          "seen_wide": false
+        }
+      },
+      "visible_bleeding": {
+        "new_bleeding": [],
+        "non_laparoscopic_spans": [],
+        "summary": "Short, heavily red-orange TEP view with vessels and fat and motion blur; no identifiable blood, red tints are tissue colour."
+      }
+    },
+    {
+      "clip": "anpol42-tep-hernia-3",
+      "split": "test",
+      "domain": "laparoscopic",
+      "frames": 777,
+      "before": {
+        "usable": 777,
+        "record_refusals": [
+          "NO_SCALE_REFERENCE"
+        ],
+        "mm_per_px": null,
+        "implied_field_width_mm": null,
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "no frame was both measurable and above the pool size where a rate estimate means anything, so no onset was declared",
+        "checkpoint_state": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null
+      },
+      "after": {
+        "usable": 777,
+        "rejected_by": {},
+        "record_refusals": [],
+        "scale_status": "none",
+        "scale_frames": "0/777",
+        "scale_robust_cv": null,
+        "mm_per_px": null,
+        "implied_field_width_mm": null,
+        "peak_field_fraction": 0.0,
+        "median_field_fraction": 0.0,
+        "volume_status": "CANNOT_MEASURE",
+        "volume_reason": "no frame carried a measurable instrument shaft",
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "the fitted rate never reached 8.00 %/min (peak 0.00 %/min over the whole clip)",
+        "onset_blocked_by": {},
+        "onset_vs_visible_bleeding": "no onset; visible new bleeding noted",
+        "checkpoint_if_enabled": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null,
+        "wide_cue": {
+          "frames_with_cue": 0,
+          "frames_with_cue_before_armed": 0,
+          "measurable_frames_before_armed": 143,
+          "seen_wide": false
+        }
+      },
+      "visible_bleeding": {
+        "new_bleeding": [
+          {
+            "from_s": 96,
+            "to_s": 102,
+            "confidence": "low",
+            "what": "a dark red spot/clot appears at the upper dissection edge; could be revealed by retraction"
+          }
+        ],
+        "non_laparoscopic_spans": [],
+        "summary": "Pale TEP dissection with small maroon stains and bruising present from the start; a small dark red spot appears near 96-100 s but no clear bleeding."
+      }
+    },
+    {
+      "clip": "anpol42-tep-indirect-hernia",
+      "split": "test",
+      "domain": "laparoscopic",
+      "frames": 106,
+      "before": {
+        "usable": 106,
+        "record_refusals": [],
+        "mm_per_px": 0.43138,
+        "implied_field_width_mm": 138.0,
+        "peak_volume_ml": 0.0,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "no frame was both measurable and above the pool size where a rate estimate means anything, so no onset was declared",
+        "checkpoint_state": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null
+      },
+      "after": {
+        "usable": 104,
+        "rejected_by": {
+          "OUT_OF_DOMAIN": 2
+        },
+        "record_refusals": [],
+        "scale_status": "sparse",
+        "scale_frames": "26/104",
+        "scale_robust_cv": 0.5273,
+        "mm_per_px": 0.18202,
+        "implied_field_width_mm": 58.2,
+        "peak_field_fraction": 0.08963,
+        "median_field_fraction": 0.0,
+        "volume_status": "CANNOT_MEASURE",
+        "volume_reason": "only 26 of 104 measurable frames (25%) carried a shaft scale; at least 25% and 50 frames are needed",
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "the fitted rate never reached 8.00 %/min (peak 0.00 %/min over the whole clip)",
+        "onset_blocked_by": {},
+        "onset_vs_visible_bleeding": "no onset; none noted",
+        "checkpoint_if_enabled": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null,
+        "wide_cue": {
+          "frames_with_cue": 5,
+          "frames_with_cue_before_armed": 5,
+          "measurable_frames_before_armed": 104,
+          "seen_wide": false
+        }
+      },
+      "visible_bleeding": {
+        "new_bleeding": [],
+        "non_laparoscopic_spans": [
+          {
+            "from_s": 18,
+            "to_s": 19,
+            "confidence": "medium",
+            "what": "lens against tissue / red blur, not interpretable"
+          }
+        ],
+        "summary": "Dark red indirect sac dissection with small clots and blood-stained cord throughout; no visible new bleeding, final frame is a smeared lens."
+      }
+    },
+    {
+      "clip": "admlsir-real-surgical-smoke-D-V09",
+      "split": "test",
+      "domain": "laparoscopic",
+      "frames": 21,
+      "before": {
+        "usable": 21,
+        "record_refusals": [
+          "NO_SCALE_REFERENCE"
+        ],
+        "mm_per_px": null,
+        "implied_field_width_mm": null,
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "no frame was both measurable and above the pool size where a rate estimate means anything, so no onset was declared",
+        "checkpoint_state": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null
+      },
+      "after": {
+        "usable": 21,
+        "rejected_by": {},
+        "record_refusals": [],
+        "scale_status": "none",
+        "scale_frames": "0/21",
+        "scale_robust_cv": null,
+        "mm_per_px": null,
+        "implied_field_width_mm": null,
+        "peak_field_fraction": 0.0,
+        "median_field_fraction": 0.0,
+        "volume_status": "CANNOT_MEASURE",
+        "volume_reason": "no frame carried a measurable instrument shaft",
+        "peak_volume_ml": null,
+        "onset_detected": false,
+        "onset_s": null,
+        "onset_reason": "the fitted rate never reached 8.00 %/min (peak 0.00 %/min over the whole clip)",
+        "onset_blocked_by": {},
+        "onset_vs_visible_bleeding": "no onset; none noted",
+        "checkpoint_if_enabled": "observing",
+        "checkpoint_held_at_s": null,
+        "critical_approach_from_s": null,
+        "wide_cue": {
+          "frames_with_cue": 0,
+          "frames_with_cue_before_armed": 0,
+          "measurable_frames_before_armed": 21,
+          "seen_wide": false
+        }
+      },
+      "visible_bleeding": {
+        "new_bleeding": [],
+        "non_laparoscopic_spans": [],
+        "summary": "4 s robotic cautery of a fat pedicle with smoke particles; no blood at any point (0.25 s sampling)."
+      }
+    }
+  ]
+}

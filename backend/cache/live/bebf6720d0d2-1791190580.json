@@ -1,0 +1,134 @@
+{
+ "digest_rows": 50,
+ "model": "nvidia/nemotron-3-super-120b-a12b",
+ "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+ "made_at": "2026-10-05 08:56 UTC",
+ "calls": {
+  "checkpoint": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "high",
+   "seconds": 12.2
+  },
+  "explain": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "low",
+   "seconds": 2.9
+  },
+  "summary": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "low",
+   "seconds": 3.2
+  }
+ },
+ "checkpoint": {
+  "decision": "raise",
+  "at_s": 11.7,
+  "headline": "Raise checkpoint at 11.7\u202fs before cystic duct clipping; no CVS confirmed.",
+  "reasoning": "The operator stated the procedure is laparoscopic cholecystectomy with cystic duct dissection, which includes an irreversible clipping/division step requiring a CVS check. Throughout the clip the blood\u2011coverage field remained at 0\u202f% and no bleeding onset was detected, offering no hemodynamic clue to proximity of the step. The phase track shows exposure beginning at 11.7\u202fs, the stage where duct clipping normally occurs, yet critical_approach was never reached and the track is a weak signal on real video. The operator did not record a safety view, and the blood segmentation validation shows low precision/recall, making the blood series an unreliable proximate marker. Because no evidence confirms CVS establishment before the likely irreversible step, a checkpoint should be placed at the start of exposure.",
+  "evidence": [
+   {
+    "t_s": 0.0,
+    "metric": "blood_pct",
+    "value": 0.0,
+    "reading": "No blood detected in the visible field at clip start.",
+    "verified": true,
+    "measured": 0.0
+   },
+   {
+    "t_s": 11.7,
+    "metric": "phase",
+    "value": "exposure",
+    "reading": "Phase track indicates exposure phase started, when cystic duct clipping typically occurs.",
+    "verified": true,
+    "measured": "exposure"
+   },
+   {
+    "t_s": 0.0,
+    "metric": "refusal",
+    "value": "OUT_OF_FOCUS",
+    "reading": "Early frames were refused due to out\u2011of\u2011focus, limiting measurement reliability.",
+    "verified": true,
+    "measured": "OUT_OF_FOCUS"
+   },
+   {
+    "t_s": 33.0,
+    "metric": "instruments",
+    "value": 4,
+    "reading": "Instrument count rose to four, showing active manipulation but no associated blood signal.",
+    "verified": true,
+    "measured": 4
+   }
+  ],
+  "limits": "The blood segmentation has poor precision and recall on real clips, so a zero reading does not guarantee absence of blood. The phase track relies on instrument width and cannot distinguish a clip applier from a nearer grasper, making critical_approach an unreliable proxy for CVS.",
+  "would_change_if": "If the operator had recorded a safety view or the phase track had indicated critical_approach, the decision would shift to do_not_raise."
+ },
+ "explanations": [
+  {
+   "id": "R1",
+   "title": "Out\u2011of\u2011focus frames",
+   "plain": "Two consecutive frames at the very start of the clip were marked OUT_OF_FOCUS, meaning the lens could not resolve detail well enough for blood detection.",
+   "did": "Scopewatch excluded those frames from all measurements and did not use them in the blood\u2011percentage series.",
+   "next": "Re\u2011record the beginning of the clip while keeping the lens focused on the operative field, or adjust focus before starting capture."
+  },
+  {
+   "id": "ONSET",
+   "title": "Bleeding onset detector silent",
+   "plain": "The fitted rate of blood\u2011area increase never reached the 8\u202f%/min trigger; the peak rate stayed at 0\u202f%/min throughout the clip, so the onset detector did not fire.",
+   "did": "Scopewatch reported no bleeding onset and left the timestamp null, making no inference about when bleeding started.",
+   "next": "Hold the camera steadier for longer periods to allow any gradual blood accumulation to be measured, or ensure adequate lighting and contrast so small changes become detectable."
+  },
+  {
+   "id": "VOLUME",
+   "title": "No volume estimate possible",
+   "plain": "Only 6\u202f% of usable frames contained a visible instrument shaft with known width, far below the required 25\u202f% and 50\u2011frame minimum for scale estimation, so a millilitre conversion could not be computed.",
+   "did": "Scopewatch returned a CANNOT_MEASURE status for volume and gave no numeric value with confidence bounds.",
+   "next": "Capture additional frames where a calibrated instrument shaft is clearly visible, or manually enter the millimetres\u2011per\u2011pixel value if known, then re\u2011run the measurement."
+  }
+ ],
+ "summary": {
+  "summary": "The engine never detected blood in the visible field; blood_pct stayed at 0\u202f% throughout the 49.2\u2011second clip, peaking at 0\u202f% at 49.2\u202fs and with a median of 0\u202f%. It refused 5 frames due to focus, occlusion, or exposure issues, while 294 frames remained usable. The engine could not estimate volume because insufficient shaft scale was present. The checkpoint decision was to raise a checkpoint.",
+  "figures": [
+   {
+    "t_s": 49.2,
+    "metric": "peak_blood_pct",
+    "value": 0.0,
+    "verified": true,
+    "measured": 0.0
+   },
+   {
+    "t_s": null,
+    "metric": "median_blood_pct",
+    "value": 0.0,
+    "verified": true,
+    "measured": 0.0
+   },
+   {
+    "t_s": null,
+    "metric": "refused_frames",
+    "value": 5,
+    "verified": false,
+    "measured": 2
+   },
+   {
+    "t_s": null,
+    "metric": "usable_frames",
+    "value": 294,
+    "verified": true,
+    "measured": 294
+   }
+  ]
+ },
+ "refusal_events": [
+  {
+   "id": "R1",
+   "code": "OUT_OF_FOCUS",
+   "start_s": 0.0,
+   "end_s": 0.2,
+   "frames": 2
+  }
+ ],
+ "live": true
+}

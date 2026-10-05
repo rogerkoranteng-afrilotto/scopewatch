@@ -1,0 +1,111 @@
+{
+ "digest_rows": 42,
+ "model": "nvidia/nemotron-3-super-120b-a12b",
+ "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+ "made_at": "2026-10-05 09:56 UTC",
+ "calls": {
+  "checkpoint": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "high",
+   "seconds": 10.0
+  },
+  "explain": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "low",
+   "seconds": 2.0
+  },
+  "summary": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "low",
+   "seconds": 2.6
+  }
+ },
+ "checkpoint": {
+  "decision": "raise",
+  "at_s": 7.8,
+  "headline": "Raise checkpoint at 7.8\u202fs before cystic duct/artery division, as CVS not confirmed.",
+  "reasoning": "The operator stated the procedure includes dissection of the cystic duct and artery, an irreversible step requiring a critical view of safety. The phase track shows the dissection phase begins at 7.8\u202fs, but the track is a weak signal on real video. Blood coverage stays low (peak 1.23\u202f%) and the bleeding onset detector never fired, indicating no major hemorrhage that would obscure the view. The operator did not record achieving the critical view of safety. Because we cannot rely on the phase or blood data to confirm proximity to the step, a precautionary checkpoint should be placed at the start of dissection.",
+  "evidence": [
+   {
+    "t_s": 7.8,
+    "metric": "phase",
+    "value": "dissection",
+    "reading": "Dissection phase starts at 7.8\u202fs, encompassing the cystic duct/artery division.",
+    "verified": true,
+    "measured": "dissection"
+   },
+   {
+    "t_s": 5.0,
+    "metric": "blood_pct",
+    "value": 0.3,
+    "reading": "Low blood coverage (0.3\u202f%) with reliable measurement, indicating no major hemorrhage early in the case.",
+    "verified": true,
+    "measured": 0.3
+   },
+   {
+    "t_s": 38.0,
+    "metric": "blood_pct",
+    "value": 1.23,
+    "reading": "Peak blood coverage remains low (1.23\u202f%) even late in the case, showing the field stays mostly clear.",
+    "verified": true,
+    "measured": 1.23
+   }
+  ],
+  "limits": "The phase track is a weak signal on real video and the blood segmentation under\u2011counts true blood, so we cannot pinpoint exactly when the irreversible step occurs; the decision relies mainly on the operator\u2019s stated plan and lack of a recorded safety view.",
+  "would_change_if": "If the operator had recorded achieving the critical view of safety, or if blood coverage showed a sharp, sustained rise coincident with instrument activity suggesting bleeding from duct/artery division, the checkpoint would not be needed."
+ },
+ "explanations": [
+  {
+   "id": "ONSET",
+   "title": "Bleeding onset not detected",
+   "plain": "The blood\u2011area increase rate briefly exceeded the 8\u202f%/min threshold, but each time the detector considered the change unreliable because either the camera moved too much, the number of instruments in view changed, or the blood measurement itself was marked unreliable.",
+   "did": "Scopewatch suppressed the onset flag and did not output a timestamp for bleeding start.",
+   "next": "Steady the camera, keep the instrument count constant, and ensure the blood\u2011percentage signal is reliable before re\u2011analyzing the clip."
+  },
+  {
+   "id": "VOLUME",
+   "title": "No volume estimate produced",
+   "plain": "The conversion from blood\u2011percentage to millilitres requires a stable pixel\u2011to\u2011millimetre scale from the instrument shaft; the scale varied too much across the case, so the volume gate failed.",
+   "did": "Scopewatch set the volume status to CANNOT_MEASURE and gave no millilitre figure.",
+   "next": "Record a new clip where the instrument shaft remains at a fixed distance and orientation, or manually enter a reliable millimetres\u2011per\u2011pixel value before requesting a volume estimate."
+  }
+ ],
+ "summary": {
+  "summary": "The engine marked blood on an average of none of the field, with a peak of 3.04\u202f% at 38.0\u202fseconds; the level rose from near zero after ~25\u202fseconds, fluctuated, and then fell again, showing no sustained plateau. No frames were refused (refused_frames\u202f=\u202f0) and all 207 frames were usable. The checkpoint was raised because the decision flag is 'raise' (raise checkpoint at 7.8\u202fs before cystic duct/artery division, as CVS not confirmed). The most important limit for interpreting these numbers is the segmentation recall, which is low, meaning the blood share is a conservative under\u2011count.",
+  "figures": [
+   {
+    "t_s": 38.0,
+    "metric": "peak_blood_pct",
+    "value": 3.04,
+    "verified": true,
+    "measured": 3.04
+   },
+   {
+    "t_s": null,
+    "metric": "median_blood_pct",
+    "value": 0.0,
+    "verified": true,
+    "measured": 0.0
+   },
+   {
+    "t_s": null,
+    "metric": "refused_frames",
+    "value": 0,
+    "verified": true,
+    "measured": 0
+   },
+   {
+    "t_s": null,
+    "metric": "usable_frames",
+    "value": 207,
+    "verified": true,
+    "measured": 207
+   }
+  ]
+ },
+ "refusal_events": [],
+ "live": true
+}

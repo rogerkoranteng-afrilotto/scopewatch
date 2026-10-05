@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{PRODUCT_TITLE}} — operating field instrument</title>
+<meta name="description" content="{{PRODUCT_TAGLINE}}">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 26 26%27%3E%3Crect width=%2726%27 height=%2726%27 rx=%276%27 fill=%27%23C2410C%27/%3E%3Cpath d=%27M6 18c3.4 0 3.4-10 6.8-10S16.2 18 20 18%27 stroke=%27white%27 stroke-width=%272.4%27 fill=%27none%27 stroke-linecap=%27round%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/product.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the measurement</a>
+
+<div class="app">
+
+  <!-- ───────────────────────── rail ───────────────────────── -->
+  <aside class="rail" aria-label="Cases and status">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 26 26" fill="none" aria-hidden="true"><rect width="26" height="26" rx="6" fill="#C2410C"/>
+        <path d="M6 18c3.4 0 3.4-10 6.8-10S16.2 18 20 18" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="12.8" cy="8" r="2.1" fill="#fff"/></svg>
+      <div><b>{{PRODUCT_TITLE}}</b><small>Operating field instrument</small></div>
+    </div>
+
+    <h2 class="railhd" id="cases-h">Real clips</h2>
+    <div class="cases" id="cases" role="list" aria-labelledby="cases-h"></div>
+
+    <input class="sr-only" type="file" id="file-input" accept="video/*,image/*">
+    <label class="secondary" for="file-input" id="file-label">Measure a clip of your own</label>
+    
+
+    <nav class="nav" aria-label="Sections of this case">
+      <a href="#live-field" data-nav="live"><svg class="ic" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1.5" y="3" width="13" height="10" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M6.5 6.5l4 1.5-4 1.5z" fill="currentColor"/></svg>Live field<span class="ct" id="ct-live">0</span></a>
+      <a href="#field-trace" data-nav="trace"><svg class="ic" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h3l2-4 2.4 8L12 8h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Field trace<span class="ct" id="ct-trace">0</span></a>
+      <a href="#reasoning" data-nav="reasoning"><svg class="ic" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.8a4.4 4.4 0 0 0-2.6 8c.5.4.8 1 .8 1.6v.6h3.6v-.6c0-.6.3-1.2.8-1.6A4.4 4.4 0 0 0 8 1.8zM6.4 14h3.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Nemotron<span class="ct" id="ct-reasoning">—</span></a>
+      <a href="#events" data-nav="events"><svg class="ic" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.2" stroke="currentColor" stroke-width="1.6"/><path d="M8 4.6v3.6l2.3 1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Events<span class="ct" id="ct-events">0</span></a>
+      <a href="#checkpoints" data-nav="checkpoints"><svg class="ic" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.4 8.6l3.2 3.2 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Checkpoints<span class="ct" id="ct-checkpoints">0</span></a>
+      <a href="#instruments" data-nav="instruments"><svg class="ic" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13l8-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="9.5" y="1.8" width="4.7" height="3.4" rx="1" transform="rotate(45 9.5 1.8)" stroke="currentColor" stroke-width="1.5"/></svg>Instruments<span class="ct" id="ct-instruments">0</span></a>
+      <hr>
+      <a href="#evidence" data-nav="evidence"><svg class="ic" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.8l5.4 2.4v4c0 3.3-2.3 5.5-5.4 6.2C4.9 13.7 2.6 11.5 2.6 8.2v-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Evidence pack<span class="ct" id="ct-evidence">0</span></a>
+    </nav>
+
+    <div class="railfoot" id="railfoot">
+      <div class="rr"><span>OpenCV</span><span id="st-opencv">reading</span></div>
+      <span id="st-frames" hidden></span><span id="st-stage" hidden></span><div class="meter" id="st-meter" hidden><i></i></div>
+      <div class="rr"><span>OpenCV time</span><span id="st-total">—</span></div>
+    </div>
+  </aside>
+
+  <!-- ───────────────────────── main ───────────────────────── -->
+  <div class="main" id="main">
+    <header class="topbar">
+      <div class="crumb"><span class="dot" id="tb-dot"></span><span id="tb-file">No case loaded</span></div>
+      <div class="tb-sep" aria-hidden="true"></div>
+      <div class="tb-item"><span id="tb-duration">—</span> long</div>
+      <div class="tb-sep" aria-hidden="true"></div>
+      <div class="tb-item" id="tb-video">resolution pending</div>
+      <div class="tb-right">
+        <span class="chip" id="tb-state">No case loaded</span>
+        <span class="chip warn badge" role="note">Retrospective measurement, not intra-operative guidance</span>
+      </div>
+    </header>
+
+    <div class="page">
+      <div class="pagehead">
+        <div>
+          <h1 id="page-title">Live field</h1>
+          <p id="page-lede"></p>
+        </div>
+      </div>
+
+      <div class="errbox" id="errbox" role="alert" hidden></div>
+
+      <div class="prog" id="prog" hidden>
+        <div class="bar"><i id="prog-fill"></i></div>
+        <p class="msg"><b id="prog-pct">0%</b><span id="prog-msg" role="status" aria-live="polite">Waiting.</span></p>
+        <ul class="notes" id="prog-notes" aria-live="polite"></ul>
+      </div>
+
+      <!-- cannot measure -->
+      <section class="callout warnline" id="cannot" aria-labelledby="cannot-h" hidden>
+        <h2 id="cannot-h">The field cannot be measured</h2>
+        <p id="cannot-why"></p>
+        <p id="cannot-next" hidden></p>
+        <div id="cannot-codes" style="margin-top:12px"></div>
+      </section>
+
+      <!-- checkpoint card: a held checkpoint waits on a named person -->
+      <section class="callout cp" id="checkpoint-card" aria-labelledby="cp-h" hidden>
+        <div>
+          <h2 class="sr-only" id="cp-h">Safety checkpoint</h2>
+          <div class="hold" id="cp-hold"></div>
+          <p class="order" id="cp-question" style="margin-top:12px"></p>
+          
+          <p class="sr-only" id="cp-live" aria-live="polite"></p>
+          <div class="form" id="cp-form">
+            <div>
+              <label for="cp-actor">Decided by</label>
+              <input type="text" id="cp-actor" autocomplete="name" placeholder="Name of the operating surgeon">
+              
+            </div>
+            <div>
+              <label for="cp-reason">Reason to proceed</label>
+              <select id="cp-reason"><option value="">Choose a reason</option></select>
+              
+            </div>
+            <div>
+              <label for="cp-note">Note (optional)</label>
+              <textarea id="cp-note" rows="2"></textarea>
+              
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn-hot" id="cp-confirm" disabled>Confirm the view is established</button>
+          <button type="button" class="btn-line" id="cp-dismiss" disabled>Record a reason and proceed</button>
+          
+        </div>
+      </section>
+
+      <section class="callout cp" id="checkpoint-resolved" aria-labelledby="cpr-h" hidden>
+        <div>
+          <h2 class="sr-only" id="cpr-h">Checkpoint resolved</h2>
+          <div class="resolved">
+            <span class="chip" id="cpr-chip">Answered</span>
+            <div>
+              <p class="order" id="cpr-line"></p>
+              <p class="reason" id="cpr-reason"></p>
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <p class="faint" id="cpr-meta"></p>
+        </div>
+      </section>
+
+      <!-- KPI band: what OpenCV measured -->
+      <h2 class="sr-only">Measured quantities</h2>
+      <div class="kpis" id="kpis"></div>
+
+      <div class="body">
+        <div class="stack">
+          <section class="vidwrap" id="live-field" aria-labelledby="lf-h">
+            <h2 class="sr-only" id="lf-h">Live field</h2>
+            <figure class="overlay">
+              <div class="shot"><img id="ov-img" alt="" hidden></div>
+              <div class="ovtext">
+                <figcaption class="cap" id="ov-cap">The overlay frame nearest the playhead appears here once a case has run.</figcaption>
+                <div class="tm" id="ov-tm"></div>
+              </div>
+            </figure>
+            <div class="vidbox">
+              <video id="video" playsinline controls preload="auto" muted></video>
+              <img id="field-img" alt="" hidden>
+              <div class="vidbar" id="vidbar" hidden></div>
+              <p class="empty" id="vid-empty">No clip loaded.</p>
+              <p class="nocodec" id="vid-nocodec" hidden></p>
+            </div>
+            <p class="credit" id="credit"></p>
+          </section>
+
+          <section class="trace" id="field-trace" aria-labelledby="ft-h">
+            <h2 class="sr-only" id="ft-h">Field trace</h2>
+            <div id="trace-host"></div>
+            <div class="cursor" id="trace-cursor"></div>
+          </section>
+
+          <div class="phases" id="phases" role="list" aria-label="Operative phases"></div>
+        </div>
+
+        <div class="stack">
+          <section class="panel" id="checkpoints" aria-labelledby="cr-h">
+            <div class="ph"><h2 id="cr-h">Checkpoint record</h2><span class="sub" id="cr-sub">none raised</span></div>
+            <div id="cr-body"></div>
+          </section>
+
+          <section class="panel" id="events" aria-labelledby="ev-h">
+            <div class="ph"><h2 id="ev-h">Event log</h2><span class="sub" id="ev-sub">0 events</span></div>
+            <div class="scroll" style="max-height:440px">
+              <table>
+                <thead><tr><th style="width:70px">Time</th><th>Event</th><th class="num" style="width:96px">Value</th></tr></thead>
+                <tbody id="ev-body"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- the Nemotron layer -->
+      <section class="nemo" id="reasoning" aria-labelledby="rs-h">
+        <div class="rhead">
+          <span class="nv" aria-hidden="true"></span>
+          <div>
+            <h2 id="rs-h">Nemotron</h2>
+            <p>Nemotron 3 Super · Nebius Token Factory</p>
+          </div>
+          <div class="rrun">
+            <button type="button" class="btn-run" id="r-run">Run it live</button>
+            <p id="r-src" class="rsrc"></p>
+          </div>
+        </div>
+        <div class="rprocedure" id="r-proc-row" hidden>
+          <label for="r-proc">Procedure <span class="faint">(optional)</span></label>
+          <input type="text" id="r-proc" maxlength="400" placeholder="e.g. laparoscopic cholecystectomy, dissecting the cystic duct">
+        </div>
+        <div class="rbody" id="r-body"></div>
+      </section>
+
+      <section class="panel" id="evidence" aria-labelledby="evd-h" style="margin-top:16px">
+        <div class="ph"><h2 id="evd-h">Evidence behind the numbers</h2><span class="sub" id="evd-sub">no frames yet</span></div>
+        <div class="strip" id="evd-strip"></div>
+      </section>
+
+      <section class="panel" id="instruments" aria-labelledby="in-h" style="margin-top:16px">
+        <div class="ph"><h2 id="in-h">Scale and accuracy</h2><span class="sub" id="in-sub">—</span></div>
+        <div class="grid2" id="in-body"></div>
+      </section>
+
+      <div class="foot">
+        <p><b>Decision support, not a medical device; never run on clinical video.</b> OpenCV measurement from the Scopewatch OpenCV entry, rebuilt with NVIDIA Nemotron on Nebius. <span id="foot-run"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="/assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+{
+ "digest_rows": 50,
+ "model": "nvidia/nemotron-3-super-120b-a12b",
+ "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+ "made_at": "2026-10-05 09:31 UTC",
+ "calls": {
+  "checkpoint": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "high",
+   "seconds": 5.9
+  },
+  "explain": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "low",
+   "seconds": 3.5
+  },
+  "summary": {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "model_label": "NVIDIA Nemotron 3 Super 120B (A12B)",
+   "reasoning_effort": "low",
+   "seconds": 2.7
+  }
+ },
+ "checkpoint": {
+  "decision": "do_not_raise",
+  "at_s": null,
+  "headline": "No checkpoint needed; procedure lacks an irreversible vascular step requiring CVS verification.",
+  "reasoning": "The operator described a laparoscopic closure of the internal inguinal ring, which involves suturing, not clipping or dividing a duct or vessel. Throughout the clip the blood percentage remained zero, indicating no hemorrhagic event that would signal an irreversible step. The phase track shows dissection and exposure phases but never reached a critical_approach flag, and the phase track is acknowledged as a weak signal on real video. No refusal events obstruct the view enough to prevent assessment, and the operator did not record a safety view. Consequently, there is no basis to place a safety checkpoint before an irreversible step.",
+  "evidence": [
+   {
+    "t_s": 0.0,
+    "metric": "blood_pct",
+    "value": 0.0,
+    "reading": "No blood detected in the field throughout the clip.",
+    "verified": true,
+    "measured": 0.0
+   },
+   {
+    "t_s": 25.0,
+    "metric": "instruments",
+    "value": 5,
+    "reading": "Maximum instrument count observed, indicating active manipulation but no clipping/division signature.",
+    "verified": true,
+    "measured": 5
+   },
+   {
+    "t_s": 4.3,
+    "metric": "phase",
+    "value": "dissection",
+    "reading": "Phase track indicates dissection phase started early, but no critical_approach flag was reached.",
+    "verified": true,
+    "measured": "dissection"
+   },
+   {
+    "t_s": 20.0,
+    "metric": "phase",
+    "value": "exposure",
+    "reading": "Procedure remains in exposure phase for the majority of the clip, with no transition to a clipping step.",
+    "verified": true,
+    "measured": "exposure"
+   }
+  ],
+  "limits": "Blood segmentation tends to underestimate true blood, making low values conservative; the phase track relies on instrument width and is a weak signal for identifying critical steps on real video.",
+  "would_change_if": "A rise in blood percentage above the bleeding onset threshold or a true critical_approach flag in the phase track would indicate an imminent irreversible step and flip the decision to raise a checkpoint."
+ },
+ "explanations": [
+  {
+   "id": "R1",
+   "title": "Out\u2011of\u2011focus frames at start",
+   "plain": "Two consecutive frames at the very beginning were judged out of focus, so they were excluded from analysis.",
+   "did": "Scopewatch marked those frames as refused and did not use them for blood\u2011percentage or rate calculations.",
+   "next": "Re\u2011record the clip ensuring the lens stays focused from the first frame, or discard the initial unfocused segment before processing."
+  },
+  {
+   "id": "ONSET",
+   "title": "Bleeding onset detector did not fire",
+   "plain": "The fitted increase in blood\u2011covered area never reached the required 8\u202f%/min threshold; the peak rate was 0\u202f%/min throughout the clip.",
+   "did": "Because the rate stayed below threshold, the bleeding_onset event was not triggered and no timestamp was recorded.",
+   "next": "Check the clip for periods of steady camera view and sufficient blood exposure; if needed, record a longer stable segment where bleeding could produce a measurable rate."
+  },
+  {
+   "id": "VOLUME",
+   "title": "No volume estimate produced",
+   "plain": "Too few frames contained an instrument of known size to establish a reliable pixel\u2011to\u2011millimetre scale, so the volume conversion could not be performed.",
+   "did": "Scopewatch set the volume status to CANNOT_MEASURE and did not output a millilitre figure.",
+   "next": "Ensure that a calibrated instrument (e.g., a known\u2011diameter shaft) remains visible for a sufficient portion of the recording, or manually enter the millimetres\u2011per\u2011pixel value if known."
+  }
+ ],
+ "summary": {
+  "summary": "The engine never detected blood, reporting 0\u202f% of the field covered throughout the 49.2\u2011second clip, with a peak of 0\u202f% at 49.2\u202fs and a median of 0\u202f%. The level remained flat, showing no increase or movement over time. It refused 5 frames due to focus, occlusion, or exposure issues, while 294 frames were usable for analysis. The checkpoint was not raised because the procedure lacked an irreversible vascular step requiring CVS verification. The most important limitation is that the blood share is a conservative under\u2011count, so absolute levels read low and trends matter more than the exact percentage.",
+  "figures": [
+   {
+    "t_s": 49.2,
+    "metric": "peak_blood_pct",
+    "value": 0.0,
+    "verified": true,
+    "measured": 0.0
+   },
+   {
+    "t_s": null,
+    "metric": "median_blood_pct",
+    "value": 0.0,
+    "verified": true,
+    "measured": 0.0
+   },
+   {
+    "t_s": null,
+    "metric": "refused_frames",
+    "value": 5,
+    "verified": false,
+    "measured": 2
+   },
+   {
+    "t_s": null,
+    "metric": "usable_frames",
+    "value": 294,
+    "verified": true,
+    "measured": 294
+   }
+  ]
+ },
+ "refusal_events": [
+  {
+   "id": "R1",
+   "code": "OUT_OF_FOCUS",
+   "start_s": 0.0,
+   "end_s": 0.2,
+   "frames": 2
+  }
+ ]
+}
